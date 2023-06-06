@@ -1,0 +1,94 @@
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/montserrat-regular-webfont.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/montserrat-bold-webfont.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/montserrat-italic-webfont.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/montserrat-bolditalic-webfont.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+}
+
+
+html, body, input, select, textarea, button {
+	font-family: 'Montserrat';
+	font-size: 13pt;
+	line-height: 1.4;
+}
+
+body {
+	--font-size-xxxsmall: 0.5rem;
+	--font-size-xxsmall: 0.65rem;
+	--font-size-xsmall: 0.8rem;
+	--font-size-small: 0.9rem;
+	--font-size-normal: 1rem;
+	--font-size-large: 1.2rem;
+	--font-size-xlarge: 1.5rem;
+	--font-size-xxlarge: 2.5rem;
+	--font-size-xxxlarge: 4rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+	margin: 20px 0;
+	padding: 0;
+	line-height:1em;
+}
+h1 {
+	font-size: var(--wp--preset--font-size--huge);
+	line-height:1em;
+}
+h2 {
+	font-size: var(--wp--preset--font-size--x-large);
+	line-height:1em;	
+}
+h3 {
+	font-size: var(--wp--preset--font-size--large);
+	line-height:1em;	
+}
+h4 {
+	font-size: var(--wp--preset--font-size--normal);
+	line-height:1em;	
+}
+h5 {
+	font-size: 1.4em;
+	line-height:1em;	
+}
+h6 {
+	font-size: 1em;
+	line-height:1em;	
+}
+
+p {
+	margin: .8em 0;
+}
+
+small {
+	font-size: .85em;
+}
+
+a {
+	color: var(--color-red);
+	text-decoration: none !important;
+}
+a:hover {
+	color: var(--color-red);
+	text-decoration: underline !important;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="{LANGUAGE}" dir="{TEXT_DIRECTION}">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+	<!-- BEGIN for_ui_examples_only -->
+    <!-- ATTENTION: This only exists to provide an example of the complete page.     -->
+    <!-- This won't be included in renderings of ordinary pages. Also have a look    -->
+    <!-- into \ILIAS\UI\Implementation\Component\Layout\Page\Renderer::setHeaderVars -->
+	<base href="{BASE}" />
+	<!-- END for_ui_examples_only -->
+
+	<title>{SHORT_TITLE}: {VIEW_TITLE}</title>
+
+	<style type="text/css">
+		{CSS_INLINE}
+	</style>
+
+	<link rel="stylesheet" type="text/css" href="{SKIN_URI}/css/init.css" />
+	<link rel="stylesheet" type="text/css" href="{SKIN_URI}/css/typography.css" />
+	<link rel="stylesheet" type="text/css" href="{SKIN_URI}/css/colorscheme.css" />
+	<link rel="stylesheet" type="text/css" href="{SKIN_URI}/css/layout.css" />
+
+	<!-- BEGIN css_file -->
+	<link rel="stylesheet" type="text/css" href="{CSS_FILE}" />
+	<!-- END css_file -->
+	
+	<!-- BEGIN meta_datum -->
+	<meta name="{META_KEY}" content="{META_VALUE}" />
+	<!-- END meta_datum -->
+	
+	<!-- BEGIN js_file -->
+	<!-- <script type="text/javascript" src="{JS_FILE}"></script> -->
+	<!-- END js_file -->
+	<!-- <script type="text/javascript" src="{SKIN_URI}/js/jquery-ui.min.js"></script> -->
+	<script type="text/javascript" src="{SKIN_URI}/js/dom.js"></script>
+</head>
+
+<body>
+	<!-- BEGIN mode_info -->
+	{MODEINFO}
+	<!-- END mode_info -->
+
+	<div class="il-page-overlay">
+		{OVERLAY}
+	</div>
+
+	
+	<div class="page<!-- BEGIN slates_engaged --> with-mainbar-slates-engaged<!-- END slates_engaged -->">
+
+		<header>
+			<div class="logo"><img src="{SKIN_URI}/images/dci-picto.svg" /></div>
+
+			<div class="nav il-maincontrols">
+				{MAINBAR}
+			</div>
+			
+			<div class="metabar">{METABAR}</div>
+		</header>
+
+		<div class="breadcrumbs">
+			{BREADCRUMBS}
+		</div>
+
+		<main class="il-layout-page-content">
+			<div>
+				<!-- BEGIN mode_info -->
+				{MODEINFO}
+				<!-- END mode_info -->
+				{CONTENT}
+			</div>
+		</main>
+
+		<!-- BEGIN pagefooter -->
+		<footer role="contentinfo">
+			{FOOTER}
+		</footer>
+		<!-- END pagefooter -->
+	</div>
+
+
+<!-- BEGIN on_load_code -->
+<script type="text/javascript">
+	<!-- BEGIN on_load_code_inner -->
+		il.Util.addOnLoad(function() {
+			{OLCODE}
+		});
+	<!-- END on_load_code_inner -->
+</script>
+<!-- END on_load_code -->
+
+</body>
+</html>

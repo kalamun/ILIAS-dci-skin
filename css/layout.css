@@ -1,0 +1,382 @@
+/* header */
+
+header {
+    position: fixed;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--color-xlight-grey);
+    background: var(--color-white);
+    z-index: 1000;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+}
+header .logo {
+    padding: 10px 30px;
+}
+header .logo > img {
+    width: 100px;
+    height: auto;
+}
+
+
+header .nav {
+    flex-grow: 2;
+}
+header .nav :where(a, button) {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: var(--font-size-small);
+    color: var(--color-black);
+    text-decoration: none;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+header .nav img {
+    display: none;
+}
+header .nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0 0.5em;
+    gap: 1em;
+}
+
+header .nav ul li.dci-mainbar-li {
+    position: relative;
+}
+header .nav ul .dci-mainbar-li-submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 100%;
+    z-index: 100;
+    background: var(--color-white);
+    box-shadow: var(--box-shadow);
+    
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;    
+}
+header .nav ul li.dci-mainbar-li:hover .dci-mainbar-li-submenu {
+    grid-template-rows: 1fr;
+}
+header .nav ul .dci-mainbar-li-submenu > .dci-main-slate {
+    overflow: hidden;
+    width: 300px;
+}
+header .nav ul .dci-mainbar-li-submenu > .dci-main-slate > * {
+    padding: 10px;
+    display: block;
+    border-bottom: 1px solid var(--color-xlight-grey);
+}
+header .nav ul .dci-mainbar-li-submenu > .dci-main-slate > a:hover {
+    color: var(--color-red);
+    text-decoration: none !important;
+}
+
+.il-mainbar-slates {
+    display: none;
+}
+
+header .metabar ul {
+    display: none;
+}
+
+.page > .breadcrumbs {
+    display: none;
+}
+
+
+/* footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    font-size: var(--font-size-xxxsmall);
+    z-index: 1000;
+}
+footer .il-footer-permanent-url input {
+    display: none;
+}
+footer .il-footer-content {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 5rem;
+    padding: 0.4em 1em;
+}
+footer .il-footer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+footer .il-footer-content ul li {
+    display: inline-block;
+}
+
+/* columns */
+.row-flex {
+    display: flex;
+    gap: 1em;
+}
+.row-flex > * {
+    flex: 1;
+}
+
+/* all pages */
+.il-layout-page-content {
+    position: relative;
+    padding-top: 150px;
+    z-index: 10;
+}
+.il-layout-page-content:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+    background-color: var(--color-xlight-grey);
+}
+
+
+/* course page */
+.media.il_HeaderInner {
+    display: none;
+}
+.ilAccHeadingHidden {
+    display: none;
+}
+#mainscrolldiv > ul#ilTab {
+    display: none;
+}
+
+#ilContentContainer {
+    margin: 0 10px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+#ilContentContainer.dci-course-page {
+    background: var(--color-white);
+}
+#ilContentContainer.dci-course-page > .row {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+#ilContentContainer .dci-course-cover {
+    width: 100%;
+    min-height: 150px;
+    background: var(--color-dark-grey);
+    margin-bottom: 50px;
+}
+#ilContentContainer .dci-course-cover figure {
+    margin: 0;
+}
+#ilContentContainer .dci-course-title h1 {
+    font-size: var(--font-size-xxlarge);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+#ilContentContainer .row h1 {
+    font-size: var(--font-size-xlarge);
+    margin-top: 3em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    position: relative;
+}
+#ilContentContainer .row h1::before {
+    content: '';
+    position: absolute;
+    right: calc(100% + 0.5em);
+    width: 100%;
+    border-bottom: 2px dashed #E8EDF1;
+    bottom: 0.2em;
+}
+#ilContentContainer .ilContainerBlock {
+    display: none;
+}
+
+.il-copg-mob-fullscreen-modal {
+    display: none;
+}
+#il_right_col {
+    display: none;
+}
+
+/* tabs */
+.dci-course-tabs .dci-course-tabs-inner {
+    margin-bottom: 40px;
+    margin-top: -40px;
+    border-bottom: 1px solid var(--color-xlight-grey);
+}
+.dci-course-tabs ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+}
+.dci-course-tabs ul li {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+.dci-course-tabs ul li a {
+    display: block;
+    padding: 5px;
+    margin-bottom: -1px;
+}
+.dci-course-tabs ul li.selected a {
+    border-bottom: 5px solid var(--color-red);
+}
+
+/* cards */
+.dci-card-preview {
+    container-name: dci-card-preview;
+    container-type: inline-size;
+}
+.dci-card-preview .dci-card-inner {
+    display: flex;
+    gap: 0.5em;
+    border: 1px solid var(--color-xlight-grey);
+}
+.dci-card-preview .il-card-repository-head {
+    display: none;
+}
+.dci-card-preview .il-card-image-container {
+    position: relative;
+}
+.dci-card-preview .il-card-image-container::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    width: 5px;
+    top: 1.5em;
+    bottom: 1.5em;
+    background: var(--color-red);
+    z-index: 10;
+}
+.dci-card-preview .il-card-image-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+}
+
+.dci-card-preview .caption.card-title {
+    padding: 1.5em;
+}
+.dci-card-preview .caption.card-title a,
+.dci-card-preview .caption.card-title button {
+    font-weight: bold;
+    line-height: 1.2;
+    color: var(--color-black);
+}
+
+/* card type=file */
+.dci-card-preview.type-file .il-card-image-container {
+    display: none;
+}
+.dci-card-preview.type-file .caption.card-title {
+    padding: 0.5em 1.5em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+.dci-card-preview.type-file .caption.card-title::before {
+    content: '';
+    display: block;
+    width: 1em;
+    height: 1em;
+    background: url('../images/icon-download.svg') center center no-repeat;
+    background-size: contain;
+}
+
+@container dci-card-preview (max-width: 500px) {
+    .dci-card-preview .dci-card-inner {
+        flex-direction: column;
+    }
+    .dci-card-preview .il-card-image-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+    }
+    .dci-card-preview .il-card-image-container::before {
+        content: '';
+        position: absolute;
+        border: 1px solid var(--color-white);
+        top: 15px;
+        right: 15px;
+        bottom: 15px;
+        left: 15px;
+        z-index: 5;
+        pointer-events: none;
+    }
+    .dci-card-preview .il-card-image-container::after {
+        right: 30%;
+        width: auto;
+        top: auto;
+        bottom: 13px;
+        left: 30%;
+        height: 5px;
+        pointer-events: none;
+    }
+    .dci-card-preview .caption.card-title {
+        padding: 0.5em 1.5em 1em;
+        text-align: center;
+    }
+}
+
+/* submenu */
+.dci-internal-menu {
+    position: sticky;
+    top: 100px;
+    background: var(--color-white);
+    z-index: 100;
+    margin-right: 50px;
+    font-size: var(--font-size-xsmall);
+    padding: 10px;
+    box-shadow: var(--box-shadow);
+}
+.dci-internal-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10px;
+    right: 10px;
+    height: 5px;
+    background: var(--color-light-grey);
+    transition: background-color 0.3s ease-in-out;
+}
+.dci-internal-menu:hover::before {
+    background: var(--color-red);
+}
+.dci-internal-menu ul {
+    padding: 0;
+    list-style: none;
+}
+.dci-internal-menu li {
+    border-bottom: 1px solid var(--color-xlight-grey);
+    padding: 0.5em 0;
+    cursor: pointer;
+}
+.dci-internal-menu li:last-child {
+    border-bottom: 0;
+}
+.dci-internal-menu li:hover {
+    color: var(--color-red);
+}
+
