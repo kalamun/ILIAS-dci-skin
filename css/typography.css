@@ -50,6 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 20px 0;
 	padding: 0;
 	line-height:1em;
+	font-weight: bold;
 }
 h1 {
 	font-size: var(--wp--preset--font-size--huge);
@@ -57,23 +58,23 @@ h1 {
 }
 h2 {
 	font-size: var(--wp--preset--font-size--x-large);
-	line-height:1em;	
+	line-height:1em;
 }
 h3 {
 	font-size: var(--wp--preset--font-size--large);
-	line-height:1em;	
+	line-height:1em;
 }
 h4 {
 	font-size: var(--wp--preset--font-size--normal);
-	line-height:1em;	
+	line-height:1em;
 }
 h5 {
 	font-size: 1.4em;
-	line-height:1em;	
+	line-height:1em;
 }
 h6 {
 	font-size: 1em;
-	line-height:1em;	
+	line-height:1em;
 }
 
 p {

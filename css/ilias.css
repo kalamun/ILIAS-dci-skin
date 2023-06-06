@@ -1,0 +1,22 @@
+/* panels */
+
+.panel .panel-heading.ilHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.panel ul.dropdown-menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    /* temporary hidden */
+    height: 0;
+    overflow: hidden;
+}
+.panel ul.dropdown-menu li {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: var(--font-size-small);
+}
+
