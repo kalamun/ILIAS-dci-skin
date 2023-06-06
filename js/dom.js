@@ -36,14 +36,22 @@ function refactorCoursePage() {
         const internalMenuUl = document.createElement('ul');
         internalMenu.appendChild(internalMenuUl);
 
-        for(const heading of rowWrapper.querySelectorAll('h1, h2, h3')) {
-            const internalMenuLi = document.createElement('li');
-            internalMenuLi.innerHTML = heading.textContent.trim();
-            internalMenuLi.addEventListener("click", () => scrollToElement(heading));
-            internalMenuUl.appendChild(internalMenuLi);
+        for(const size of [1,2,3,4,5,6]) {
+            const headings = rowWrapper.querySelectorAll(`h${size}`);
+            if (headings.length) {
+                for (const heading of headings) {
+                    const internalMenuLi = document.createElement('li');
+                    internalMenuLi.innerHTML = heading.textContent.trim();
+                    internalMenuLi.addEventListener("click", () => scrollToElement(heading));
+                    internalMenuUl.appendChild(internalMenuLi);
+                }
+                break;
+            }
         }
 
-        sideBar.appendChild(internalMenu);
+        if (internalMenuUl.childNodes.length) {
+            sideBar.appendChild(internalMenu);
+        }
     }
 }
 
