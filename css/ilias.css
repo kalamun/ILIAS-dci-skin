@@ -20,3 +20,42 @@
     font-size: var(--font-size-small);
 }
 
+
+/* accordion */
+.dci-accordion div.il_VAccordionContentDef {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 500ms;
+    height: auto !important;
+}
+.dci-accordion div.il_VAccordionContentDef.ilAccHideContent {
+    grid-template-rows: 0fr;
+}
+.dci-accordion div.il_VAccordionContentDef .ilc_va_icont_VAccordICont {
+    overflow: hidden;
+}
+.dci-accordion div.ilc_va_icont_VAccordICont,
+.dci-accordion div.ilc_va_iheada_VAccordIHeadActive {
+    padding: 0;
+    background: transparent;
+    text-transform: none;
+}
+.dci-accordion .il_VAccordionToggleDef {
+    cursor: pointer;
+}
+.dci-accordion .il_VAccordionToggleDef:hover {
+    border-bottom: 1px solid var(--color-grey);
+}
+.dci-accordion .ilc_va_ihcap_VAccordIHeadCap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.dci-accordion .ilc_va_ihcap_VAccordIHeadCap > [class^="icon-"] {
+    margin-bottom: 8px;
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+}
+.dci-accordion .ilc_va_iheada_VAccordIHeadActive .ilc_va_ihcap_VAccordIHeadCap > [class^="icon-"] {
+    transform: rotate(0deg);
+}

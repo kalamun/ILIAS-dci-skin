@@ -33,14 +33,14 @@
     margin: 0;
 }
 #ilContentContainer .dci-course-title h1 {
-    font-size: var(--font-size-xxlarge);
+    font-size: var(--font-size-xxlarge) !important;
     margin-top: 1em;
     margin-bottom: 1em;
     font-weight: bold;
 }
 #ilContentContainer .row h1 {
-    font-size: var(--font-size-xlarge);
-    margin-top: 3em;
+    font-size: var(--font-size-xxlarge) !important;
+    margin-top: 2em;
     margin-bottom: 1em;
     font-weight: bold;
     position: relative;
@@ -52,6 +52,9 @@
     width: 100%;
     border-bottom: 2px dashed #E8EDF1;
     bottom: 0.2em;
+}
+#ilContentContainer .row h2 {
+    margin-top: 2em;
 }
 #ilContentContainer .ilContainerBlock {
     display: none;
