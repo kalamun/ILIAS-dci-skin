@@ -42,17 +42,21 @@
 }
 .dci-accordion .il_VAccordionToggleDef {
     cursor: pointer;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 8px;
 }
 .dci-accordion .il_VAccordionToggleDef:hover {
-    border-bottom: 1px solid var(--color-grey);
+    border-bottom: 1px solid var(--color-light-grey);
 }
 .dci-accordion .ilc_va_ihcap_VAccordIHeadCap {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
+.dci-accordion .ilc_va_ihcap_VAccordIHeadCap h2 {
+    margin-bottom: 0;
+}
 .dci-accordion .ilc_va_ihcap_VAccordIHeadCap > [class^="icon-"] {
-    margin-bottom: 8px;
     transform: rotate(180deg);
     transition: transform 0.3s ease-in-out;
 }

@@ -19,7 +19,7 @@ function refactorCoursePage() {
 
     const rowWrapper = ilContentContainer.querySelector('.row');
     if (rowWrapper) {
-        const cover = ilContentContainer.querySelector('#il_center_col figure.ilc_media_cont_MediaContainer:first-of-type');
+        const cover = ilContentContainer.querySelector('#il_center_col figure:first-of-type');
         if (cover) {
             const coverWrapper = document.querySelector('.dci-course-cover') || document.createElement('div');
             coverWrapper.className = "dci-course-cover";

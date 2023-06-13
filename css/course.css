@@ -70,14 +70,16 @@
 /* tabs */
 .dci-course-tabs .dci-course-tabs-inner {
     margin-bottom: 40px;
-    margin-top: -40px;
+    margin-top: -20px;
     border-bottom: 1px solid var(--color-xlight-grey);
+    font-size: var(--font-size-xsmall);
+    text-align: left;
 }
 .dci-course-tabs ul {
     list-style: none;
     padding: 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 1em;
 }
@@ -191,4 +193,14 @@
         padding: 0.5em 1.5em 1em;
         text-align: center;
     }
+}
+
+
+
+/* cleanup eDami */
+#ilContentContainer .row h1 {
+    position: relative;
+    padding: 0;
+    border-left: 0;
+    border-right: 0;
 }
