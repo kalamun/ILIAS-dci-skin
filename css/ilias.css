@@ -54,8 +54,7 @@
 .dci-accordion .ilc_va_ihcap_VAccordIHeadCap h2 {
     margin-bottom: 0;
 }
-.dci-accordion .ilc_va_ihcap_VAccordIHeadCap > [class^="icon-"] {
-    transform: rotate(180deg);
+.dci-accordion .dci-accordion-heading [class^="icon-"] {
     transition: transform 0.3s ease-in-out;
     background: var(--color-light-grey);
     border-radius: 2em;
@@ -65,7 +64,8 @@
     width: 1.4em;
     display: inline-flex;
     align-items: center;
-}
-.dci-accordion .ilc_va_iheada_VAccordIHeadActive .ilc_va_ihcap_VAccordIHeadCap > [class^="icon-"] {
     transform: rotate(0deg);
+}
+.dci-accordion .dci-accordion-heading.ilc_va_iheada_VAccordIHeadActive [class^="icon-"] {
+    transform: rotate(180deg);
 }
