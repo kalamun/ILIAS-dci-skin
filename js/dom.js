@@ -78,6 +78,15 @@ function refactorCoursePage() {
         pageTitle.appendChild(meterWrapper);
     }
 
+    /** auto redirect empty pages with unselected tabs */
+    const pageContent = document.querySelector('#il_center_col');
+    const tabs = document.querySelector('.dci-course-tabs');
+    const selectedTab = tabs.querySelector('li.selected');
+    if (pageContent.innerHTML.trim() === "" && !selectedTab) {
+        const firstTab = tabs.querySelector('li a');
+        firstTab.click();
+    }
+
     /** fake */
     const randomCompleted = Math.round(Math.random() * 18 + 2);
     document.querySelectorAll('.dci-card-preview .dci-card-progress').forEach((card, index) => index <= randomCompleted ? card.classList.add('completed') : false);
