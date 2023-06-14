@@ -187,4 +187,6 @@ footer .il-footer-content ul li {
 .dci-internal-menu li:hover {
     color: var(--color-red);
 }
-
+.dci-internal-menu li.visible {
+    font-weight: bold;
+}

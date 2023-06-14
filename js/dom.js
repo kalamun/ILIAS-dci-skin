@@ -36,15 +36,28 @@ function refactorCoursePage() {
         const internalMenuUl = document.createElement('ul');
         internalMenu.appendChild(internalMenuUl);
 
+        const observer = new IntersectionObserver(entries => {
+            const firstVisible = entries.find(entry => entry.isIntersecting);
+            if (firstVisible) {
+                const firstVisibleIndex = Number(firstVisible.target?.dataset?.index);
+                if (firstVisibleIndex !== false && firstVisibleIndex !== null) {
+                    internalMenu.querySelectorAll('li').forEach((li, index) => li.classList.toggle('visible', index === firstVisibleIndex));
+                }
+            }
+        }, { threshold: [1] });
+        
         for(const size of [1,2,3,4,5,6]) {
             const headings = rowWrapper.querySelectorAll(`h${size}`);
             if (headings.length) {
-                for (const heading of headings) {
+                for (const [index, heading] of headings.entries()) {
                     const internalMenuLi = document.createElement('li');
                     internalMenuLi.innerHTML = heading.textContent.trim();
                     internalMenuLi.addEventListener("click", () => scrollToElement(heading));
                     internalMenuUl.appendChild(internalMenuLi);
+                    heading.dataset.index = index;
+                    observer.observe(heading);
                 }
+
                 break;
             }
         }
