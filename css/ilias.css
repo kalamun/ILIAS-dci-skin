@@ -46,12 +46,12 @@
     padding-bottom: 8px;
     border-bottom: 1px solid var(--color-light-grey);
 }
-.dci-accordion .ilc_va_ihcap_VAccordIHeadCap {
+.dci-accordion .dci-accordion-heading > div {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
-.dci-accordion .ilc_va_ihcap_VAccordIHeadCap h2 {
+.dci-accordion .dci-accordion-heading h2 {
     margin-bottom: 0;
 }
 .dci-accordion .dci-accordion-heading [class^="icon-"] {
