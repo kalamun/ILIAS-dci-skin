@@ -32,6 +32,11 @@
 #ilContentContainer .dci-course-cover figure {
     margin: 0;
 }
+#ilContentContainer .dci-course-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 #ilContentContainer .dci-course-title h1 {
     font-size: var(--font-size-xxlarge) !important;
     margin-top: 1em;
@@ -140,6 +145,20 @@
     color: var(--color-black);
 }
 
+.dci-card-progress.completed {
+    background: var(--color-xlight-grey);
+    border-radius: 2em;
+    margin: -0.5em auto 1em;
+    font-size: var(--font-size-xsmall);
+    font-weight: bold;
+    color: var(--color-blue);
+    padding: 0 1em;
+    position: absolute;
+    top: 2em;
+    right: 2em;
+}
+
+
 /* card type=file */
 .dci-card-preview.type-file .il-card-image-container {
     display: none;
@@ -193,9 +212,37 @@
         padding: 0.5em 1.5em 1em;
         text-align: center;
     }
+    .dci-card-progress.completed {
+        position: relative;
+        top: 0;
+        right: 0;
+    }    
 }
 
 
+/* meter */
+.dci-meter {
+    background: var(--color-xlight-grey);
+    border-radius: 3em;
+    padding: 1em;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.dci-meter svg {
+    width: auto;
+    height: 2em;
+    display: block;
+}
+.dci-meter svg.circular-meter path.bar {
+    stroke: var(--color-grey);
+}
+.dci-meter svg.circular-meter path.progress {
+    transition: stroke-dashoffset 0.35s, stroke 0.35s;
+    stroke: var(--color-red);
+}
+      
 
 /* cleanup eDami */
 #ilContentContainer .row h1 {
@@ -203,4 +250,8 @@
     padding: 0;
     border-left: 0;
     border-right: 0;
+}
+
+.dci-card-preview .dci-card-progress.completed::after {
+    content: 'COMPLETED';
 }

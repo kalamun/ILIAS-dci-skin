@@ -53,6 +53,21 @@ function refactorCoursePage() {
             sideBar.appendChild(internalMenu);
         }
     }
+
+    const pageTitle = document.querySelector('.dci-course-title');
+    if (pageTitle) {
+        const randomProgress = Math.round(Math.random() * 50 + 10);
+        const meter = createMeter(randomProgress);
+        const meterWrapper = document.createElement('div');
+        meterWrapper.className = 'dci-meter';
+        meterWrapper.appendChild(meter);
+        meterWrapper.appendChild(document.createTextNode(randomProgress + "%"));
+        pageTitle.appendChild(meterWrapper);
+    }
+
+    /** fake */
+    const randomCompleted = Math.round(Math.random() * 18 + 2);
+    document.querySelectorAll('.dci-card-preview .dci-card-progress').forEach((card, index) => index <= randomCompleted ? card.classList.add('completed') : false);
 }
 
 
@@ -61,3 +76,59 @@ function scrollToElement(elm) {
     document.body.scrollTo({top, behavior: "smooth"});
 }
 
+
+function createMeter(progress) {
+    const radius = 10;
+    const stroke = 4;
+    const startAngle = 40;
+    const endAngle = 320;
+    const normalizedRadius = radius - stroke / 2;
+    const circumference = ((endAngle - startAngle) * Math.PI / 180) * normalizedRadius;
+    const strokeDashoffset = (circumference / 100 * progress);
+  
+    const polarToCartesian = (centerX, centerY, radius, angleInDegrees) => {
+      const angleInRadians = (angleInDegrees-90) * Math.PI / 180;
+      return {
+        x: centerX + (radius * Math.cos(angleInRadians)),
+        y: centerY + (radius * Math.sin(angleInRadians))
+      };
+    }
+    
+    const end = polarToCartesian(radius, radius, -normalizedRadius, startAngle);
+    const start = polarToCartesian(radius, radius, -normalizedRadius, endAngle);
+    const d = [
+      "M", start.x, start.y, 
+      "A", normalizedRadius, normalizedRadius, 0, 1, 0, end.x, end.y
+    ].join(" ");
+  
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = (
+        `<svg
+        class="circular-meter"
+        height="${start.y + stroke/2}"
+        width="${radius * 2}"
+        viewBox="${'0 0 ' + radius * 2 + ' ' + (start.y + stroke/2)}"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="${d}"
+          fill="transparent"
+          stroke-width="${stroke}"
+          stroke-linecap="round"
+          class="bar"
+        />
+          <path
+            d="${d}"
+            fill="transparent"
+            stroke-width="${stroke}"
+            stroke-dasharray="${strokeDashoffset + ' ' + circumference}"
+            style="stroke-dashoffset: ${strokeDashoffset - circumference};"
+            stroke-linecap="round"
+            class="progress"
+          />
+      </svg>`
+    );
+
+    return wrapper;
+}
