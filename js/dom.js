@@ -1,5 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
     refactorNavMenu();
+    initSideBar();
     refactorCoursePage();
 });
 
@@ -11,11 +12,23 @@ function refactorNavMenu() {
     }
 }
 
+function initSideBar() {
+    const sideBar = document.querySelector('.dci-sidebar');
+    if (sideBar) {
+        const toggleMenu = sideBar.querySelector('.dci-sidebar-toggle');
+        toggleMenu?.addEventListener('click', toggleSideBar);
+        
+        const innerMenu = sideBar.querySelector('.dci-course-tabs-inner');
+
+        const closed = window.localStorage.getItem("sidebar_closed") === "true";
+        sideBar.classList.toggle("closed", closed || !innerMenu);
+        setTimeout(() => sideBar.classList.toggle("active", !!innerMenu), 200);
+    }
+}
+
 function refactorCoursePage() {
     const ilContentContainer = document.querySelector('#ilContentContainer');
     if (!ilContentContainer) return false;
-
-    ilContentContainer.classList.add('dci-course-page');
 
     const rowWrapper = ilContentContainer.querySelector('.row');
     if (rowWrapper) {
@@ -27,7 +40,7 @@ function refactorCoursePage() {
             //rowWrapper.parentNode.insertBefore(coverWrapper, rowWrapper);
         }
 
-        const sideBar = document.createElement('div');
+/*         const sideBar = document.createElement('div');
         sideBar.className = "dci-course-sidebar";
         rowWrapper.insertBefore(sideBar, rowWrapper.childNodes[0]);
 
@@ -64,7 +77,7 @@ function refactorCoursePage() {
 
         if (internalMenuUl.childNodes.length) {
             sideBar.appendChild(internalMenu);
-        }
+        } */
     }
 
     const pageTitle = document.querySelector('.dci-course-title');
@@ -79,14 +92,14 @@ function refactorCoursePage() {
     }
 
     /** auto redirect empty pages with unselected tabs */
-    const pageContent = document.querySelector('#il_center_col');
+/*     const pageContent = document.querySelector('#il_center_col');
     const tabs = document.querySelector('.dci-course-tabs');
     const selectedTab = tabs.querySelector('li.selected');
     if (pageContent.innerHTML.trim() === "" && !selectedTab) {
         const firstTab = tabs.querySelector('li a');
         firstTab.click();
     }
-
+ */
     /** fake */
     const randomCompleted = Math.round(Math.random() * 18 + 2);
     document.querySelectorAll('.dci-card-preview .dci-card-progress').forEach((card, index) => index <= randomCompleted ? card.classList.add('completed') : false);
@@ -98,6 +111,11 @@ function scrollToElement(elm) {
     document.body.scrollTo({top, behavior: "smooth"});
 }
 
+function toggleSideBar() {
+    const sideBar = document.querySelector('.dci-sidebar');
+    sideBar?.classList.toggle('closed');
+    window.localStorage.setItem("sidebar_closed", sideBar.classList.contains('closed'));
+}
 
 function createMeter(progress) {
     const radius = 10;

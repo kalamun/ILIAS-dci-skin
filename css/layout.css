@@ -1,7 +1,14 @@
-/* header */
+body > .page {
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+    overflow: hidden;
 
+    --sidebar-width: 15rem;
+}
+
+/* header */
 header {
-    position: fixed;
     padding: 0.2rem;
     display: flex;
     align-items: center;
@@ -90,7 +97,6 @@ header .metabar ul {
     display: none;
 }
 
-
 /* footer */
 footer {
     position: fixed;
@@ -131,58 +137,90 @@ footer .il-footer-content ul li {
 }
 
 /* all pages */
-.il-layout-page-content {
+.page > .dci-layout-page-content {
+    flex-grow: 2;
+    overflow: auto;
     position: relative;
-    padding-top: 150px;
     z-index: 10;
-}
-.il-layout-page-content:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 300px;
-    z-index: -1;
-    background-color: var(--color-xlight-grey);
+    display: flex;
+    transform: translate(0, 0);
+    overflow: hidden;
 }
 
-
-/* submenu */
-.dci-internal-menu {
+/* sidebar */
+.page > .dci-layout-page-content > .dci-sidebar {
+    width: var(--sidebar-width);
+    background: var(--color-xlight-grey);
     position: sticky;
-    top: 100px;
-    background: var(--color-white);
-    z-index: 100;
-    margin-right: 50px;
-    font-size: var(--font-size-xsmall);
-    padding: 10px;
-    box-shadow: var(--box-shadow);
-}
-.dci-internal-menu::before {
-    content: '';
-    position: absolute;
     top: 0;
-    left: 10px;
-    right: 10px;
-    height: 5px;
-    background: var(--color-light-grey);
-    transition: background-color 0.3s ease-in-out;
+    padding-top: 130px;
+    font-size: var(--font-size-small);
+    overflow: auto;
+    z-index: 100;
 }
-.dci-internal-menu:hover::before {
-    background: var(--color-red);
+.page > .dci-layout-page-content > .dci-sidebar.active {
+    transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
-.dci-internal-menu ul {
+.page > .dci-layout-page-content > .dci-sidebar.closed {
+    width: 0;
+    overflow: hidden;
+}
+.page > .dci-layout-page-content > .dci-sidebar .dci-sidebar-toggle {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    font-size: var(--font-size-xlarge);
+    width: calc(10px + 1.5em);
+    height: 1.5em;
+    padding-left: 20px;
+    border-radius: 0 100px 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: var(--color-xlight-grey);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+}
+.page > .dci-layout-page-content > .dci-sidebar.active .dci-sidebar-toggle {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.page > .dci-layout-page-content > .dci-sidebar.active .dci-sidebar-toggle:hover {
+    background-color: var(--color-white);
+}
+.page > .dci-layout-page-content > .dci-sidebar.active .dci-sidebar-toggle > span {
+    transition: rotate 0.3s ease-in-out;
+}
+.page > .dci-layout-page-content > .dci-sidebar.closed .dci-sidebar-toggle > span {
+    rotate: 180deg;
+}
+.page > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner {
+    padding: 20px;
+    width: var(--sidebar-width);
+}
+.page > .dci-layout-page-content > .dci-sidebar ul {
     padding: 0;
     list-style: none;
 }
-.dci-internal-menu li {
-    border-bottom: 1px solid var(--color-xlight-grey);
+.page > .dci-layout-page-content > .dci-sidebar li {
     padding: 0.5em 0;
     cursor: pointer;
 }
-.dci-internal-menu li:last-child {
-    border-bottom: 0;
+.page > .dci-layout-page-content > .dci-sidebar li a {
+    text-decoration: none;
+    color: var(--color-xdark-grey);
+    display: block;
+}
+.page > .dci-layout-page-content > .dci-sidebar li a:hover {
+    color: var(--color-black);
+    text-decoration: none !important;
+}
+.page > .dci-layout-page-content > .dci-sidebar li.selected a {
+    color: var(--color-red);
 }
 .dci-internal-menu li:hover {
     color: var(--color-red);
@@ -190,3 +228,23 @@ footer .il-footer-content ul li {
 .dci-internal-menu li.visible {
     font-weight: bold;
 }
+
+
+/* main content */
+.page > .dci-layout-page-content > .dci-main-content {
+    padding: 50px;
+    position: relative;
+    flex-grow: 2;
+    overflow: auto;
+}
+.page > .dci-layout-page-content > .dci-main-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    z-index: -1;
+    background-color: var(--color-xlight-grey);
+}
+
