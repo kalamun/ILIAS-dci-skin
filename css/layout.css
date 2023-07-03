@@ -16,7 +16,6 @@ header {
     background: var(--color-white);
     z-index: 1000;
     width: 100%;
-    box-shadow: var(--box-shadow);
 }
 header .logo {
     padding: 10px 30px;
@@ -184,7 +183,7 @@ footer .il-footer-content ul li {
     pointer-events: none;
 }
 .page > .dci-layout-page-content > .dci-sidebar.active .dci-sidebar-toggle {
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
     opacity: 1;
     pointer-events: all;
 }
@@ -210,6 +209,12 @@ footer .il-footer-content ul li {
     padding: 0.5em 0;
     cursor: pointer;
 }
+.page > .dci-layout-page-content > .dci-sidebar li.is-root {
+    font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 1px solid var(--color-light-grey);
+    margin-bottom: 1em;
+}
 .page > .dci-layout-page-content > .dci-sidebar li a {
     text-decoration: none;
     color: var(--color-xdark-grey);
@@ -227,6 +232,14 @@ footer .il-footer-content ul li {
 }
 .dci-internal-menu li.visible {
     font-weight: bold;
+}
+
+
+/* course page navbar */
+.dci-page-navbar {
+    font-size: var(--font-size-xxsmall);
+    line-height: var(--font-size-xsmall);
+    padding-left: 2em;
 }
 
 

@@ -40,47 +40,40 @@ function refactorCoursePage() {
             //rowWrapper.parentNode.insertBefore(coverWrapper, rowWrapper);
         }
 
-/*         const sideBar = document.createElement('div');
-        sideBar.className = "dci-course-sidebar";
-        rowWrapper.insertBefore(sideBar, rowWrapper.childNodes[0]);
-
-        const internalMenu = document.createElement('div');
-        internalMenu.className = 'dci-internal-menu';
-        const internalMenuUl = document.createElement('ul');
-        internalMenu.appendChild(internalMenuUl);
-
-        const observer = new IntersectionObserver(entries => {
-            const firstVisible = entries.find(entry => entry.isIntersecting);
-            if (firstVisible) {
-                const firstVisibleIndex = Number(firstVisible.target?.dataset?.index);
-                if (firstVisibleIndex !== false && firstVisibleIndex !== null) {
-                    internalMenu.querySelectorAll('li').forEach((li, index) => li.classList.toggle('visible', index === firstVisibleIndex));
+        const internalMenu = document.getElementsByClassName('dci-page-navbar')[0];
+        if (internalMenu) {
+            const internalMenuUl = document.createElement('ul');
+            internalMenu.appendChild(internalMenuUl);
+    
+            const observer = new IntersectionObserver(entries => {
+                const firstVisible = entries.find(entry => entry.isIntersecting);
+                if (firstVisible) {
+                    const firstVisibleIndex = Number(firstVisible.target?.dataset?.index);
+                    if (firstVisibleIndex !== false && firstVisibleIndex !== null) {
+                        internalMenu.querySelectorAll('li').forEach((li, index) => li.classList.toggle('visible', index === firstVisibleIndex));
+                    }
                 }
-            }
-        }, { threshold: [1] });
-        
-        for(const size of [1,2,3,4,5,6]) {
-            const headings = rowWrapper.querySelectorAll(`h${size}`);
-            if (headings.length) {
-                for (const [index, heading] of headings.entries()) {
-                    const internalMenuLi = document.createElement('li');
-                    internalMenuLi.innerHTML = heading.textContent.trim();
-                    internalMenuLi.addEventListener("click", () => scrollToElement(heading));
-                    internalMenuUl.appendChild(internalMenuLi);
-                    heading.dataset.index = index;
-                    observer.observe(heading);
+            }, { threshold: [1] });
+            
+            for(const size of [1,2,3,4,5,6]) {
+                const headings = rowWrapper.querySelectorAll(`h${size}`);
+                if (headings.length) {
+                    for (const [index, heading] of headings.entries()) {
+                        const internalMenuLi = document.createElement('li');
+                        internalMenuLi.innerHTML = heading.textContent.trim();
+                        internalMenuLi.addEventListener("click", () => scrollToElement(heading));
+                        internalMenuUl.appendChild(internalMenuLi);
+                        heading.dataset.index = index;
+                        observer.observe(heading);
+                    }
+    
+                    break;
                 }
-
-                break;
             }
         }
-
-        if (internalMenuUl.childNodes.length) {
-            sideBar.appendChild(internalMenu);
-        } */
     }
 
-    const pageTitle = document.querySelector('.dci-course-title');
+/*     const pageTitle = document.querySelector('.dci-course-title');
     if (pageTitle) {
         const randomProgress = Math.round(Math.random() * 50 + 10);
         const meter = createMeter(randomProgress);
@@ -90,7 +83,7 @@ function refactorCoursePage() {
         meterWrapper.appendChild(document.createTextNode(randomProgress + "%"));
         pageTitle.appendChild(meterWrapper);
     }
-
+ */
     /** auto redirect empty pages with unselected tabs */
 /*     const pageContent = document.querySelector('#il_center_col');
     const tabs = document.querySelector('.dci-course-tabs');
@@ -100,15 +93,12 @@ function refactorCoursePage() {
         firstTab.click();
     }
  */
-    /** fake */
-    const randomCompleted = Math.round(Math.random() * 18 + 2);
-    document.querySelectorAll('.dci-card-preview .dci-card-progress').forEach((card, index) => index <= randomCompleted ? card.classList.add('completed') : false);
 }
 
 
 function scrollToElement(elm) {
     const top = elm?.getBoundingClientRect().top + document.body.scrollTop - 150;
-    document.body.scrollTo({top, behavior: "smooth"});
+    document.querySelector('.dci-main-content')?.scrollTo({top, behavior: "smooth"});
 }
 
 function toggleSideBar() {
