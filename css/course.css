@@ -16,7 +16,6 @@
     padding-bottom: 100px;
 }
 #ilContentContainer.dci-course-page {
-    background: var(--color-white);
     font-size: var(--font-size-small);
     line-height: var(--font-size-xlarge);
 }
