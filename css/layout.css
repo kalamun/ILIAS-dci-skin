@@ -152,7 +152,7 @@ footer .il-footer-content ul li {
     background: var(--color-xlight-grey);
     position: sticky;
     top: 0;
-    padding-top: 130px;
+    padding-top: 50px;
     font-size: var(--font-size-small);
     overflow: auto;
     z-index: 100;
@@ -205,20 +205,41 @@ footer .il-footer-content ul li {
     padding: 0;
     list-style: none;
 }
-.page > .dci-layout-page-content > .dci-sidebar li {
-    padding: 0.5em 0;
+.page > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner > ul > li {
+    padding: 0.7em 0;
+    margin: 0;
     cursor: pointer;
+}
+.page > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner > ul > li:not(.is-root) {
+    border-top: 1px dotted var(--color-grey);
+}
+.page > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner > ul > li:not(.is-root):first-of-type {
+    border-top: none;
 }
 .page > .dci-layout-page-content > .dci-sidebar li.is-root {
     font-size: 1.2em;
+    line-height: 1.2;
     font-weight: bold;
     border-bottom: 1px solid var(--color-light-grey);
     margin-bottom: 1em;
+    min-height: 130px;
+    display: flex;
+    align-items: end;
+}
+.page > .dci-layout-page-content > .dci-sidebar li.is-root a {
+    align-items: center;
+}
+.page > .dci-layout-page-content > .dci-sidebar li.is-root .dci-meter {
+    background: transparent;
+    padding: 0;
 }
 .page > .dci-layout-page-content > .dci-sidebar li a {
     text-decoration: none;
     color: var(--color-xdark-grey);
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-basis: 100%;
 }
 .page > .dci-layout-page-content > .dci-sidebar li a:hover {
     color: var(--color-black);
@@ -226,6 +247,20 @@ footer .il-footer-content ul li {
 }
 .page > .dci-layout-page-content > .dci-sidebar li.selected a {
     color: var(--color-red);
+}
+.page > .dci-layout-page-content > .dci-sidebar li a .progress {
+    font-size: var(--font-size-xxsmall);
+    line-height: var(--font-size-xxsmall);
+    background: var(--color-xxlight-grey);
+    border-radius: 5em;
+    display: inline-block;
+    padding: 0.5em;
+    color: var(--color-dark-grey);
+    white-space: nowrap;
+}
+.page > .dci-layout-page-content > .dci-sidebar li a .progress.completed {
+    background-color: var(--color-green);
+    color: var(--color-white);
 }
 .dci-internal-menu li:hover {
     color: var(--color-red);
@@ -239,7 +274,10 @@ footer .il-footer-content ul li {
 .dci-page-navbar {
     font-size: var(--font-size-xxsmall);
     line-height: var(--font-size-xsmall);
-    padding-left: 2em;
+    padding: 0.5em 0 0.5em 2em;
+}
+.dci-page-navbar li {
+    padding: 0.3em 0;
 }
 
 

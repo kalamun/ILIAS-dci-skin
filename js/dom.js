@@ -73,26 +73,11 @@ function refactorCoursePage() {
         }
     }
 
-/*     const pageTitle = document.querySelector('.dci-course-title');
-    if (pageTitle) {
-        const randomProgress = Math.round(Math.random() * 50 + 10);
-        const meter = createMeter(randomProgress);
-        const meterWrapper = document.createElement('div');
-        meterWrapper.className = 'dci-meter';
-        meterWrapper.appendChild(meter);
-        meterWrapper.appendChild(document.createTextNode(randomProgress + "%"));
-        pageTitle.appendChild(meterWrapper);
+    for (const oldMeter of document.querySelectorAll('meter')) {
+        const meter = createMeter(Number(oldMeter.getAttribute('value')));
+        oldMeter.parentNode.insertBefore(meter, oldMeter);
+        oldMeter.parentNode.removeChild(oldMeter, true);
     }
- */
-    /** auto redirect empty pages with unselected tabs */
-/*     const pageContent = document.querySelector('#il_center_col');
-    const tabs = document.querySelector('.dci-course-tabs');
-    const selectedTab = tabs.querySelector('li.selected');
-    if (pageContent.innerHTML.trim() === "" && !selectedTab) {
-        const firstTab = tabs.querySelector('li a');
-        firstTab.click();
-    }
- */
 }
 
 
@@ -132,6 +117,7 @@ function createMeter(progress) {
     ].join(" ");
   
     const wrapper = document.createElement('div');
+    wrapper.className = "dci-meter";
     wrapper.innerHTML = (
         `<svg
         class="circular-meter"
@@ -157,7 +143,9 @@ function createMeter(progress) {
             stroke-linecap="round"
             class="progress"
           />
-      </svg>`
+      </svg>
+      <span class="percent">${progress}%</span>
+      `
     );
 
     return wrapper;
