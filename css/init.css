@@ -70,4 +70,5 @@ iframe {
 input, select, textarea, button {
 	width: 100%;
 	margin: 3px;
+	cursor: pointer;
 }

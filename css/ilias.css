@@ -1,3 +1,17 @@
+/* form */
+input[type="button"],
+input[type="submit"] {
+    background: var(--color-red);
+    color: var(--color-white);
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    display: inline-block;
+}
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    background: var(--color-light-red);
+}
+
 /* panels */
 .panel .panel-heading.ilHeader {
     display: flex;
@@ -18,7 +32,6 @@
     text-align: left;
     font-size: var(--font-size-small);
 }
-
 
 /* accordion */
 .dci-accordion div.il_VAccordionContentDef {
