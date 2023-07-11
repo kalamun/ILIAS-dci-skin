@@ -67,8 +67,76 @@ iframe {
 	max-width: 100% ;
 }
 
-input, select, textarea, button {
-	width: 100%;
-	margin: 3px;
+.sr-only {
+    display: none;
+}
+
+
+/* forms */
+
+input, select, textarea {
+	background:var(--color-white);
+	border:1px solid var(--color-grey);
+	padding:0.3em 0.5em;
+}
+
+label, input, select {
 	cursor: pointer;
+}
+
+input[type=button],
+input[type=submit] {
+    background: var(--color-red);
+    color: var(--color-white);
+	border: 0;
+    border-radius: 2em;
+    padding: 0.4em 1em;
+    display: inline-block;
+}
+input[type=button]:hover,
+input[type=submit]:hover {
+    background: var(--color-light-red);
+}
+
+input[type=checkbox] {
+	appearance: none;
+	width: 1.2em;
+	height: 1.2em;
+	padding: 0;
+	text-align: center;
+	position: relative;
+	cursor: pointer;
+	margin: 0 5px;
+	vertical-align: middle;
+	position: relative !important;
+}
+input[type=checkbox]:checked:before {
+	font-family: 'dci-icons';
+	content: '\e822'; /* icon-done ✓ */
+	position: absolute;
+	top: 0;
+	left: -0.1em;
+	font-size: 1em;
+	line-height: .8;
+}
+
+input[type=radio] {
+	appearance: none;
+	display: inline-flex;
+	width: 1.2em;
+	height: 1.2em;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	padding: 0;
+	cursor: pointer;
+	vertical-align: middle;
+	position: relative !important;
+}
+input[type=radio]:checked:before {
+	content: '';
+	background-color: var(--color-red);
+	width: 0.8em;
+	height: 0.8em;
+	border-radius: 1em;
 }
