@@ -20,12 +20,12 @@
     line-height: var(--font-size-xlarge);
 }
 
-#ilContentContainer .dci-course-cover {
+body.is_course #ilContentContainer .dci-course-cover {
     width: 100%;
     min-height: 150px;
     margin-bottom: 50px;
 }
-#ilContentContainer .dci-course-cover figure {
+body.is_course #ilContentContainer .dci-course-cover figure {
     margin: 0;
 }
 #ilContentContainer .dci-course-title {
@@ -46,7 +46,7 @@
     font-weight: bold;
     position: relative;
 }
-#ilContentContainer .row h1::before {
+body.is_course #ilContentContainer .row h1::before {
     content: '';
     position: absolute;
     right: calc(100% + 0.5em);

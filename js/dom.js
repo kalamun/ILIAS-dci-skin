@@ -8,7 +8,9 @@ function refactorNavMenu() {
     const wrapper = document.querySelector('.il-maincontrols-mainbar');
     const slates = wrapper.querySelectorAll('div.dci-main-slate');
     for (const [index, li] of Object.entries(wrapper.querySelectorAll('li.dci-mainbar-li'))) {
-        li.querySelector('.dci-mainbar-li-submenu')?.appendChild(slates[index]);
+        if (slates[index]) {
+            li.querySelector('.dci-mainbar-li-submenu')?.appendChild(slates[index]);
+        }
     }
 }
 
