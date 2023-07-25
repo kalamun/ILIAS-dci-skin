@@ -386,6 +386,10 @@ body.is_course .page > .dci-layout-page-content > .dci-main-content::after {
     background-color: var(--color-xlight-grey);
 }
 
+.dci-course-title {
+    display: none;
+}
+
 
 /* grid */
 .clearfix,

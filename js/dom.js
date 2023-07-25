@@ -32,7 +32,7 @@ function refactorCoursePage() {
     const ilContentContainer = document.querySelector('#ilContentContainer');
     if (!ilContentContainer) return false;
 
-    const rowWrapper = ilContentContainer.querySelector('.row');
+    const rowWrapper = ilContentContainer.querySelector('body.is_course .row');
     if (rowWrapper) {
         const cover = ilContentContainer.querySelector('#il_center_col figure:first-of-type');
         if (cover) {

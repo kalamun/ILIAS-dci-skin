@@ -28,7 +28,7 @@ body.is_course #ilContentContainer .dci-course-cover {
 body.is_course #ilContentContainer .dci-course-cover figure {
     margin: 0;
 }
-#ilContentContainer .dci-course-title {
+body.is_course #ilContentContainer .dci-course-title {
     display: flex;
     align-items: center;
     justify-content: space-between;

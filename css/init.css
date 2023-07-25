@@ -80,10 +80,11 @@ input, select, textarea {
 	padding:0.3em 0.5em;
 }
 
-label, input, select {
+label, input, select, button {
 	cursor: pointer;
 }
 
+.dci-course-page button,
 input[type=button],
 input[type=submit] {
     background: var(--color-red);
@@ -93,6 +94,7 @@ input[type=submit] {
     padding: 0.4em 1em;
     display: inline-block;
 }
+.dci-course-page button:hover,
 input[type=button]:hover,
 input[type=submit]:hover {
     background: var(--color-light-red);
