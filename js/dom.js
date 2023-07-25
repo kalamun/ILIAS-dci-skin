@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
-    refactorNavMenu();
+    //refactorNavMenu();
     initSideBar();
     refactorCoursePage();
 });
