@@ -1,7 +1,14 @@
 window.addEventListener("DOMContentLoaded", () => {
+    initMenu();
     initSideBar();
     refactorCoursePage();
 });
+
+function initMenu() {
+    for ( const element of document.querySelectorAll('.il-mainbar .dci-mainbar-li-submenu a.il-link.link-bulky')) {
+        element.parentNode.removeChild(element);
+    }
+}
 
 function initSideBar() {
     const sideBar = document.querySelector('.dci-sidebar');

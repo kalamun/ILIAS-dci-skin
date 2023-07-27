@@ -345,7 +345,7 @@ footer .il-footer-content ul li {
     text-decoration: none !important;
 }
 .page > .dci-layout-page-content > .dci-sidebar li.selected a {
-    color: var(--color-red);
+    color: var(--color-blue);
 }
 .page > .dci-layout-page-content > .dci-sidebar li a .progress {
     font-size: var(--font-size-xxsmall);
