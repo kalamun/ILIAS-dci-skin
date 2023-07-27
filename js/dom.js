@@ -1,18 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
-    //refactorNavMenu();
     initSideBar();
     refactorCoursePage();
 });
-
-function refactorNavMenu() {
-    const wrapper = document.querySelector('.il-maincontrols-mainbar');
-    const slates = wrapper.querySelectorAll('div.dci-main-slate');
-    for (const [index, li] of Object.entries(wrapper.querySelectorAll('li.dci-mainbar-li'))) {
-        if (slates[index]) {
-            li.querySelector('.dci-mainbar-li-submenu')?.appendChild(slates[index]);
-        }
-    }
-}
 
 function initSideBar() {
     const sideBar = document.querySelector('.dci-sidebar');
@@ -72,6 +61,11 @@ function refactorCoursePage() {
                     break;
                 }
             }
+        }
+
+        /* open scorm in modal */
+        for (const link of rowWrapper.querySelectorAll('.kalamun-card:where([data-type=sahs], [data-type=htlm]) a')) {
+            link.addEventListener('click', openLinkInModal);
         }
     }
 
@@ -151,4 +145,49 @@ function createMeter(progress) {
     );
 
     return wrapper;
+}
+
+function closeModal() {
+    for (const modal of document.querySelectorAll('.dci-modal')) {
+        modal.parentNode.removeChild(modal);
+    }
+}
+
+function openLinkInModal(e) {
+    e.preventDefault();
+
+    closeModal();
+
+    const link = e.target;
+    if (!link) return;
+
+    const modalWrapper = document.createElement('DIV');
+    modalWrapper.className = 'dci-modal';
+
+    const modalHeader = document.createElement('DIV');
+    modalHeader.className = 'dci-modal_header';
+
+    const modalTitle = document.createElement('DIV');
+    modalTitle.className = 'dci-modal_title';
+    modalTitle.appendChild( document.createTextNode(link.title) );
+
+    const modalClose = document.createElement('DIV');
+    modalClose.className = 'dci-modal_close';
+    modalClose.addEventListener('click', closeModal);
+    const modalCloseSpan = document.createElement('SPAN');
+    modalCloseSpan.className = 'icon-close';
+    
+    const modalBody = document.createElement('DIV');
+    modalBody.className = 'dci-modal_body';
+    const modalBodyIframe = document.createElement('IFRAME');
+    modalBodyIframe.src = link.href;
+
+    modalHeader.appendChild(modalTitle);
+    modalClose.appendChild(modalCloseSpan);
+    modalHeader.appendChild(modalClose);
+    modalBody.appendChild(modalBodyIframe);
+    modalWrapper.appendChild(modalHeader);
+    modalWrapper.appendChild(modalBody);
+
+    document.body.appendChild(modalWrapper);
 }
