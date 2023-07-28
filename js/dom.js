@@ -74,6 +74,11 @@ function refactorCoursePage() {
         for (const link of rowWrapper.querySelectorAll('.kalamun-card:where([data-type=sahs], [data-type=htlm]) a')) {
             link.addEventListener('click', openLinkInModal);
         }
+        
+        /* open medias linked to images in modal */
+        for (const link of rowWrapper.querySelectorAll('.ilc_Mob a[href*="cmd=displayMedia"]')) {
+            link.addEventListener('click', openLinkInModal);
+        }
     }
 
     for (const oldMeter of document.querySelectorAll('meter')) {
@@ -165,8 +170,9 @@ function openLinkInModal(e) {
 
     closeModal();
 
-    const link = e.target;
+    const link = e.currentTarget || e.target;
     if (!link) return;
+    console.log(link);
 
     const modalWrapper = document.createElement('DIV');
     modalWrapper.className = 'dci-modal';
