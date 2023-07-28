@@ -76,7 +76,7 @@ function refactorCoursePage() {
         }
         
         /* open medias linked to images in modal */
-        for (const link of rowWrapper.querySelectorAll('.ilc_Mob a[href*="cmd=displayMedia"]')) {
+        for (const link of rowWrapper.querySelectorAll('.ilc_Mob a[href*="cmd=displayMedia"], a.ilCOPageSection[target="_blank"]')) {
             link.addEventListener('click', openLinkInModal);
         }
     }
