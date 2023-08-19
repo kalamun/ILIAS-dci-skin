@@ -87,17 +87,29 @@ label, input, select, button {
 .dci-course-page button,
 input[type=button],
 input[type=submit] {
-    background: var(--color-red);
-    color: var(--color-white);
+	background: var(--color-red);
+	color: var(--color-white);
 	border: 0;
-    border-radius: 2em;
-    padding: 0.4em 1em;
-    display: inline-block;
+	border-radius: 2em;
+	padding: 0.8em 1.5em;
+	display: inline-block;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	letter-spacing: -0.03em;
 }
 .dci-course-page button:hover,
 input[type=button]:hover,
 input[type=submit]:hover {
     background: var(--color-light-red);
+}
+:is(.dci-course-page button, input[type=button], input[type=submit]) [class^="icon-"] {
+	font-size: 2em;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 0;
+	margin-right: -0.4em;
+	margin-top: -1em;
+	margin-bottom: -1em;
 }
 
 input[type=checkbox] {

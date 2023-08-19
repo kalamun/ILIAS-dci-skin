@@ -85,13 +85,17 @@ body.is_course #ilContentContainer .row h1::before {
     display: block;
 }
 .dci-meter svg.circular-meter path.bar {
-    stroke: var(--color-grey);
+    stroke: var(--color-light-grey);
 }
 .dci-meter svg.circular-meter path.progress {
     transition: stroke-dashoffset 0.35s, stroke 0.35s;
     stroke: var(--color-red);
 }
-      
+.kalamun-training-dashboard_course .dci-meter {
+    background: transparent;
+    padding: 0;
+}
+
 
 /* cleanup eDami */
 #ilContentContainer .row h1 {

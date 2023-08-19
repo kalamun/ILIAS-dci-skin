@@ -1,12 +1,25 @@
 window.addEventListener("DOMContentLoaded", () => {
     initMenu();
     initSideBar();
+    initDashboard();
     refactorCoursePage();
 });
 
 function initMenu() {
     for ( const element of document.querySelectorAll('.il-mainbar .dci-mainbar-li-submenu a.il-link.link-bulky')) {
         element.parentNode.removeChild(element);
+    }
+}
+
+function initDashboard() {
+    for ( const element of document.querySelectorAll('.kalamun-training-dashboard_course')) {
+        const permalink = element.dataset.permalink;
+        if (permalink) {
+            element.addEventListener("click", (e) => {
+                e.preventDefault();
+                window.location.href = permalink;
+            });
+        }
     }
 }
 
