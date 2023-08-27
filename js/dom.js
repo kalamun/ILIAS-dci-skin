@@ -9,6 +9,17 @@ function initMenu() {
     for ( const element of document.querySelectorAll('.il-mainbar .dci-mainbar-li-submenu a.il-link.link-bulky')) {
         element.parentNode.removeChild(element);
     }
+    document.querySelector('.metabar .dci-mainbar-li.search button')?.addEventListener('click', openSearch);
+    document.querySelector('.metabar .dci-mainbar-li.search #mm_search_form > .input-group input')?.addEventListener('blur', closeSearch);
+}
+
+function openSearch() {
+    const container = document.querySelector('.metabar .dci-mainbar-li.search #mm_search_form > .input-group');
+    container?.classList.add('open');
+    container?.querySelector('input')?.focus();
+}
+function closeSearch() {
+    document.querySelector('.metabar .dci-mainbar-li.search #mm_search_form > .input-group')?.classList.remove('open');
 }
 
 function initDashboard() {

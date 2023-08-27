@@ -163,6 +163,35 @@ header .metabar .icon {
     font-size: 1.2em;
 }
 
+.metabar .dci-mainbar-li.search {
+    display: flex;
+}
+.metabar .dci-mainbar-li.search :is(#ilMMSearchMenu, #mm_search_menu_ac) {
+    display: none;
+}
+.metabar .dci-mainbar-li.search #mm_search_form {
+    display: flex;
+    align-items: center;
+}
+.metabar .dci-mainbar-li.search #mm_search_form input[type="submit"] {
+    display: none;
+}
+.metabar .dci-mainbar-li.search #mm_search_form > .input-group {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+    margin-left: -1.5em;
+}
+.metabar .dci-mainbar-li.search #mm_search_form > .input-group.open {
+    width: 200px;
+}
+.metabar .dci-mainbar-li.search #mm_search_form > .input-group input {
+    width: 100%;
+    padding-left: 2em;
+    z-index: -1;
+    position: relative;
+}
+
 .il-avatar.il-avatar-letter {
     background-color: var(--color-blue);
     border-color: var(--color-xlight-grey);
