@@ -1,0 +1,10 @@
+.is_inbox :is(.ilTableNav, .ilTableCommandRowTop, .ilTableCommandRow, .ilTableSelectAll) {
+    display: none;
+}
+.is_inbox tr :is(td, th):is(:nth-child(1), :nth-child(2), :nth-child(6)) {
+    display: none;
+}
+
+.is_inbox .ilToolbar.navbar.navbar-default {
+    display: none;
+}
