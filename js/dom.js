@@ -104,7 +104,7 @@ function refactorCoursePage() {
 
 function scrollToElement(elm) {
     const top = elm?.getBoundingClientRect().top + document.body.scrollTop - 150;
-    document.querySelector('.dci-main-content')?.scrollTo({top, behavior: "smooth"});
+    document.querySelector('.dci-page-wrapper')?.scrollTo({top, behavior: "smooth"});
 }
 
 function toggleSideBar() {
@@ -185,10 +185,15 @@ function openLinkInModal(e) {
 
     const link = e.currentTarget || e.target;
     if (!link) return;
-    console.log(link);
+
+    const isVideo = link.href.match(/[\.mp4]$/) || link.href.includes('cmd=displayMedia');
 
     const modalWrapper = document.createElement('DIV');
-    modalWrapper.className = 'dci-modal';
+    modalWrapper.className = `dci-modal${isVideo ? ' is-video' : ''}`;
+
+    const modalBkg = document.createElement('DIV');
+    modalBkg.className = 'dci-modal_bkg';
+    modalBkg.addEventListener('click', closeModal);
 
     const modalHeader = document.createElement('DIV');
     modalHeader.className = 'dci-modal_header';
@@ -212,6 +217,7 @@ function openLinkInModal(e) {
     modalClose.appendChild(modalCloseSpan);
     modalHeader.appendChild(modalClose);
     modalBody.appendChild(modalBodyIframe);
+    modalWrapper.appendChild(modalBkg);
     modalWrapper.appendChild(modalHeader);
     modalWrapper.appendChild(modalBody);
 
