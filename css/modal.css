@@ -38,6 +38,7 @@
     font-size: var(--font-size-small);
     padding: 0.8em 1em;
     font-weight: bold;
+    background: var(--color-white);
 }
 
 .dci-modal .dci-modal_close {
@@ -45,11 +46,13 @@
     padding: 0.2em;
     color: var(--color-grey);
     cursor: pointer;
+    background: var(--color-white);
 }
 
 .dci-modal .dci-modal_body {
     flex-grow: 2;
     position: relative;
+    background: var(--color-black);
 }
 .dci-modal .dci-modal_body iframe {
     position: absolute;
