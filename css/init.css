@@ -90,7 +90,6 @@ input[type=submit] {
 	background: var(--color-red);
 	color: var(--color-white);
 	border: 0;
-	border-radius: 2em;
 	padding: 0.8em 1.5em;
 	display: inline-block;
 	font-size: 0.8em;

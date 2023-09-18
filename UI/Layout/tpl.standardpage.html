@@ -55,13 +55,23 @@
 	<div class="page<!-- BEGIN slates_engaged --> with-mainbar-slates-engaged<!-- END slates_engaged -->">
 
 		<header>
-			<div class="logo"><img src="{SKIN_URI}/images/dci-picto.svg" /> e-Campus</div>
-
-			<div class="nav il-maincontrols">
-				{MAINBAR}
+			<div class="logo">
+				<a href="{DCI_HOMEPAGE_URL}">
+					<img src="{SKIN_URI}/images/dci-picto.svg" />
+					e-Campus
+				</a>
 			</div>
-			
-			<div class="metabar">{METABAR}</div>
+			<div class="dci-controls">
+				<div class="dci-main-controls">
+					<div class="nav il-maincontrols">
+						{MAINBAR}
+					</div>
+					<div class="metabar">{METABAR}</div>
+				</div>
+				<div class="dci-secondary-controls">
+					{LANGUAGE_SELECTOR}
+				</div>
+			</div>
 		</header>
 
 		<div class="dci-page-wrapper">
@@ -72,7 +82,7 @@
 			<main class="il-layout-page-content dci-layout-page-content">
 				<div class="dci-sidebar">
 					<div class="dci-sidebar-toggle">
-						<span class="icon-left"></span>
+						<span class="icon-menu"></span>
 					</div>
 					{DCI_COURSE_MENU}
 				</div>
@@ -82,13 +92,13 @@
 					<!-- END mode_info -->
 					{CONTENT}
 				</div>
+				
+				<!-- BEGIN pagefooter -->
+				<footer role="contentinfo">
+					{FOOTER}
+				</footer>
+				<!-- END pagefooter -->
 			</main>
-
-			<!-- BEGIN pagefooter -->
-			<footer role="contentinfo">
-				{FOOTER}
-			</footer>
-			<!-- END pagefooter -->
 		</div>
 	</div>
 

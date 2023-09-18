@@ -16,23 +16,65 @@ header {
     background: var(--color-white);
     z-index: 1000;
     width: 100%;
+    max-width: 1700px;
+    margin: 0 auto;
 }
 header .logo {
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    margin-right: 30px;
-    color: var(--color-blue);
-    border-right: 1px solid var(--color-xlight-grey);
-    min-width: var(--sidebar-width);
-    justify-content: center;
+    border: 1px solid var(--color-xlight-grey);
+    border-top: none;
+    border-bottom: none;
+    background: var(--color-white);
+    position: relative;
+    z-index: 50;
 }
-header .logo > img {
+header .logo a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-grey);
+    padding: 0 40px;
+    width: 100%;
+    height: 100%;
+}
+header .logo img {
     width: 70px;
     height: auto;
 }
 
+header .dci-controls {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+}
+header .dci-main-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-content: stretch;
+}
+header .dci-main-controls > * {
+    padding: 0 40px;
+}
+header .dci-secondary-controls {
+    background: var(--color-xlight-grey);
+    box-shadow: 40em 0 0 0 var(--color-xlight-grey), -40em 0 0 0 var(--color-xlight-grey);
+    padding: 5px 40px;
+    text-align: right;
+    font-size: var(--font-size-xsmall);
+}
+
+.dci-language-selector {
+    display: inline-flex;
+    gap: 1em;
+}
+.dci-language-selector a {
+    color: var(--color-black);
+    display: block;
+}
+.dci-language-selector a.selected {
+    font-weight: bold;
+}
 
 header .nav {
     flex-grow: 2;
@@ -75,7 +117,7 @@ header .metabar ul {
     align-items: center;
     justify-content: flex-start;
     list-style: none;
-    padding: 0 1.5em 0 0.5em;
+    padding: 0;
     gap: 1.5em;
 }
 
@@ -238,6 +280,10 @@ footer {
     font-size: var(--font-size-xxxsmall);
     background: var(--color-xlight-grey);
     color: var(--color-dark-grey);
+    grid-column-end: 3;
+    grid-column-start: 1;
+    position: relative;
+    z-index: 100;
 }
 footer .il-footer-content {
     display: flex;
@@ -267,7 +313,7 @@ footer .il-footer-content ul li {
 .page > .dci-page-wrapper {
     flex-grow: 2;
     z-index: 10;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .page > .dci-page-wrapper > .dci-layout-page-content {
@@ -275,16 +321,22 @@ footer .il-footer-content ul li {
     overflow: auto;
     position: relative;
     z-index: 10;
-    display: flex;
+    display: grid;
     transform: translate(0, 0);
-    overflow: hidden;
-    min-height: 100%;
+    overflow: auto;
+    height: 100%;
+    grid-auto-rows: max-content;
+    grid-template-columns: var(--sidebar-width) 1fr;
+}
+.page > .dci-page-wrapper > .dci-layout-page-content.sidebar-active {
+    transition: grid-template-columns 0.3s ease-in-out;
+}
+.page > .dci-page-wrapper > .dci-layout-page-content.sidebar-closed {
+    grid-template-columns: 0 1fr;
 }
 
 /* sidebar */
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar {
-    width: var(--sidebar-width);
-    min-width: var(--sidebar-width);
     background: var(--color-xlight-grey);
     position: sticky;
     top: 0;
@@ -292,14 +344,9 @@ footer .il-footer-content ul li {
     font-size: var(--font-size-small);
     overflow: auto;
     z-index: 100;
-}
-.page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar.active {
-    transition: width 0.3s ease-in-out, padding 0.3s ease-in-out,
-        min-width 0.3s ease-in-out, padding 0.3s ease-in-out;
+    max-height: 100svh;
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar.closed {
-    width: 0;
-    min-width: 0;
     overflow: hidden;
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar .dci-sidebar-toggle {
@@ -347,6 +394,15 @@ footer .il-footer-content ul li {
     padding: 0.7em 0;
     margin: 0;
     cursor: pointer;
+    position: relative;
+}
+.page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner > ul > li.selected:not(.is-root)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    border-right: 6px solid var(--color-blue);
+    height: 100%;
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner > ul > li:not(.is-root) {
     border-top: 1px dotted var(--color-grey);
@@ -427,6 +483,7 @@ footer .il-footer-content ul li {
     position: relative;
     flex-grow: 2;
     overflow: hidden;
+    min-height: 90svh;
 }
 body.is_course .page > .dci-page-wrapper > .dci-layout-page-content > .dci-main-content::after {
     content: '';

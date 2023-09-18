@@ -36,6 +36,8 @@ function initDashboard() {
 
 function initSideBar() {
     const sideBar = document.querySelector('.dci-sidebar');
+    const pageContent = document.querySelector('.dci-layout-page-content');
+
     if (sideBar) {
         const toggleMenu = sideBar.querySelector('.dci-sidebar-toggle');
         toggleMenu?.addEventListener('click', toggleSideBar);
@@ -44,7 +46,11 @@ function initSideBar() {
 
         const closed = window.localStorage.getItem("sidebar_closed") === "true";
         sideBar.classList.toggle("closed", closed || !innerMenu);
-        setTimeout(() => sideBar.classList.toggle("active", !!innerMenu), 200);
+        pageContent.classList.toggle("sidebar-closed", closed || !innerMenu);
+        setTimeout(() => {
+            sideBar.classList.toggle("active", !!innerMenu);
+            pageContent.classList.toggle("sidebar-active", !!innerMenu);
+        }, 200);
     }
 }
 
@@ -115,12 +121,14 @@ function refactorCoursePage() {
 
 function scrollToElement(elm) {
     const top = elm?.getBoundingClientRect().top + document.body.scrollTop - 150;
-    document.querySelector('.dci-page-wrapper')?.scrollTo({top, behavior: "smooth"});
+    document.querySelector('.dci-layout-page-content')?.scrollTo({top, behavior: "smooth"});
 }
 
 function toggleSideBar() {
     const sideBar = document.querySelector('.dci-sidebar');
+    const pageContent = document.querySelector('.dci-layout-page-content');
     sideBar?.classList.toggle('closed');
+    pageContent?.classList.toggle('sidebar-closed');
     window.localStorage.setItem("sidebar_closed", sideBar.classList.contains('closed'));
 }
 
@@ -197,7 +205,7 @@ function openLinkInModal(e) {
     const link = e.currentTarget || e.target;
     if (!link) return;
 
-    const isVideo = link.href.match(/[\.mp4]$/) || link.href.includes('cmd=displayMedia');
+    const isVideo = !!link.href.match(/\.mp4$/) || link.href.includes('cmd=displayMedia');
 
     const modalWrapper = document.createElement('DIV');
     modalWrapper.className = `dci-modal${isVideo ? ' is-video' : ''}`;
