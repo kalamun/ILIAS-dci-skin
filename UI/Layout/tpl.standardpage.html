@@ -58,7 +58,6 @@
 			<div class="logo">
 				<a href="{DCI_HOMEPAGE_URL}">
 					<img src="{SKIN_URI}/images/dci-logo.svg" />
-					e-Campus
 				</a>
 			</div>
 			<div class="dci-controls">
@@ -68,9 +67,6 @@
 					</div>
 					<div class="metabar">{METABAR}</div>
 				</div>
-				<div class="dci-secondary-controls">
-					{LANGUAGE_SELECTOR}
-				</div>
 			</div>
 		</header>
 
@@ -78,11 +74,17 @@
 			<div class="breadcrumbs">
 				{BREADCRUMBS}
 			</div>
-
+			
 			<main class="il-layout-page-content dci-layout-page-content">
+				<div class="dci-course-cover"></div>
 				<div class="dci-sidebar">
 					<div class="dci-sidebar-toggle">
-						<span class="icon-menu"></span>
+						<div class="open">
+							<span class="icon-menu"></span>
+						</div>
+						<div class="close">
+							<span class="icon-close"></span>
+						</div>
 					</div>
 					{DCI_COURSE_MENU}
 				</div>
@@ -96,6 +98,7 @@
 				<!-- BEGIN pagefooter -->
 				<footer role="contentinfo">
 					{FOOTER}
+					{LANGUAGE_SELECTOR}
 				</footer>
 				<!-- END pagefooter -->
 			</main>

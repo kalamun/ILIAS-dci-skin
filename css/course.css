@@ -31,11 +31,12 @@ body.is_course #ilContentContainer .dci-course-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    display: none;
 }
 #ilContentContainer .dci-course-title h1 {
     font-size: var(--font-size-xxlarge) !important;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
     font-weight: bold;
 }
 #ilContentContainer .row h1 {
@@ -72,27 +73,27 @@ body.is_course #ilContentContainer .row h1::before {
 .dci-meter {
     background: var(--color-xlight-grey);
     border-radius: 3em;
-    padding: 1em;
     white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
-.dci-meter svg {
-    width: auto;
-    height: 2em;
-    display: block;
-}
-.dci-meter svg.circular-meter path.bar {
-    stroke: var(--color-light-grey);
-}
-.dci-meter svg.circular-meter path.progress {
-    transition: stroke-dashoffset 0.35s, stroke 0.35s;
-    stroke: var(--color-red);
 }
 .kalamun-training-dashboard_course .dci-meter {
-    background: transparent;
+    background: var(--color-light-grey);
     padding: 0;
+    min-height: 8px;
+    border-radius: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
+.dci-meter-progress {
+    height: 100%;
+    min-width: 5px;
+    background: var(--color-red);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 

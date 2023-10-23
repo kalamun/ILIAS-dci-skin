@@ -60,7 +60,7 @@ function refactorCoursePage() {
 
     const rowWrapper = ilContentContainer.querySelector('body.is_course .row');
     if (rowWrapper) {
-        const cover = ilContentContainer.querySelector('#il_center_col figure:first-of-type');
+        const cover = ilContentContainer.querySelector('#il_center_col .dci-cover:first-of-type');
         if (cover) {
             const coverWrapper = document.querySelector('.dci-course-cover') || document.createElement('div');
             coverWrapper.className = "dci-course-cover";
@@ -69,10 +69,11 @@ function refactorCoursePage() {
         }
 
         const internalMenu = document.getElementsByClassName('dci-page-navbar')[0];
+
         if (internalMenu) {
             const internalMenuUl = document.createElement('ul');
             internalMenu.appendChild(internalMenuUl);
-    
+            
             const observer = new IntersectionObserver(entries => {
                 const firstVisible = entries.find(entry => entry.isIntersecting);
                 if (firstVisible) {
@@ -133,59 +134,10 @@ function toggleSideBar() {
 }
 
 function createMeter(progress) {
-    const radius = 10;
-    const stroke = 4;
-    const startAngle = 40;
-    const endAngle = 320;
-    const normalizedRadius = radius - stroke / 2;
-    const circumference = ((endAngle - startAngle) * Math.PI / 180) * normalizedRadius;
-    const strokeDashoffset = (circumference / 100 * progress);
-  
-    const polarToCartesian = (centerX, centerY, radius, angleInDegrees) => {
-      const angleInRadians = (angleInDegrees-90) * Math.PI / 180;
-      return {
-        x: centerX + (radius * Math.cos(angleInRadians)),
-        y: centerY + (radius * Math.sin(angleInRadians))
-      };
-    }
-    
-    const end = polarToCartesian(radius, radius, -normalizedRadius, startAngle);
-    const start = polarToCartesian(radius, radius, -normalizedRadius, endAngle);
-    const d = [
-      "M", start.x, start.y, 
-      "A", normalizedRadius, normalizedRadius, 0, 1, 0, end.x, end.y
-    ].join(" ");
-  
     const wrapper = document.createElement('div');
     wrapper.className = "dci-meter";
     wrapper.innerHTML = (
-        `<svg
-        class="circular-meter"
-        height="${start.y + stroke/2}"
-        width="${radius * 2}"
-        viewBox="${'0 0 ' + radius * 2 + ' ' + (start.y + stroke/2)}"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="${d}"
-          fill="transparent"
-          stroke-width="${stroke}"
-          stroke-linecap="round"
-          class="bar"
-        />
-          <path
-            d="${d}"
-            fill="transparent"
-            stroke-width="${stroke}"
-            stroke-dasharray="${strokeDashoffset + ' ' + circumference}"
-            style="stroke-dashoffset: ${strokeDashoffset - circumference};"
-            stroke-linecap="round"
-            class="progress"
-          />
-      </svg>
-      <span class="percent">${progress}%</span>
-      `
+        `<div class="dci-meter-progress" style="width:${Math.min(progress, 100)}%"></div>`
     );
 
     return wrapper;

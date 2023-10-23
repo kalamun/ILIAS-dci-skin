@@ -26,35 +26,45 @@
     transition: grid-template-rows 500ms;
     height: auto !important;
 }
+.dci-accordion-heading {
+    background: var(--color-blue);
+    color: var(--color-white);
+    padding: 0.5em 0;
+    box-shadow: 600px 0 0 var(--color-blue), -600px 0 0 var(--color-blue);
+}
 .dci-accordion div.il_VAccordionContentDef.ilAccHideContent {
     grid-template-rows: 0fr;
 }
 .dci-accordion div.il_VAccordionContentDef .ilc_va_icont_VAccordICont {
     overflow: hidden;
 }
-.dci-accordion div.ilc_va_icont_VAccordICont,
-.dci-accordion div.ilc_va_iheada_VAccordIHeadActive {
+.dci-accordion div.ilc_va_icont_VAccordICont {
+    text-transform: none;
+    background-color: transparent;
     padding: 0;
-    background: transparent;
+}
+.dci-accordion div.ilc_va_iheada_VAccordIHeadActive,
+.dci-accordion div.ilc_va_iheada_VAccordIHeadActive:hover {
+    padding: 0.5em 0;
+    background: var(--color-blue);
+    color: var(--color-white);
     text-transform: none;
 }
 .dci-accordion .il_VAccordionToggleDef {
     cursor: pointer;
     border-bottom: 1px solid transparent;
     padding-bottom: 8px;
-    border-bottom: 1px solid var(--color-light-grey);
 }
 .dci-accordion .dci-accordion-heading > div {
     display: flex;
     align-items: flex-end;
 }
 .dci-accordion .dci-accordion-heading h2 {
-    margin-bottom: 0;
+    margin: 0 !important;
     flex-grow: 2;
 }
 .dci-accordion .dci-accordion-heading .accordion-toggle {
     transition: transform 0.3s ease-in-out;
-    background: var(--color-light-grey);
     border-radius: 2em;
     font-size: var(--font-size-xlarge);
     line-height: 1;
@@ -70,9 +80,6 @@
 }
 .dci-accordion .accordion-progress {
     padding: 0.3em 1em;
-    background: var(--color-xlight-grey);
-    border-radius: 3em;
-    margin-right: 0.5em;
     font-size: 1rem;
 }
 .dci-accordion .accordion-progress.completed {
