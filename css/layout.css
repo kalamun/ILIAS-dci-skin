@@ -344,6 +344,12 @@ footer .il-footer-content ul li {
     grid-template-columns: 0 1fr;
 }
 
+/* cover container */
+.dci-course-cover {
+    grid-column-end: 3;
+    grid-column-start: 1;
+}
+
 /* sidebar */
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar {
     background: var(--color-white);

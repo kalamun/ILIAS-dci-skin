@@ -46,14 +46,6 @@ body.is_course #ilContentContainer .dci-course-title {
     font-weight: bold;
     position: relative;
 }
-body.is_course #ilContentContainer .row h1::before {
-    content: '';
-    position: absolute;
-    right: calc(100% + 0.5em);
-    width: 100%;
-    border-bottom: 2px dashed #E8EDF1;
-    bottom: 0.2em;
-}
 #ilContentContainer .row h2 {
     margin-top: 2em;
 }
