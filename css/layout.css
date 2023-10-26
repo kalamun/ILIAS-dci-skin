@@ -496,6 +496,8 @@ footer .il-footer-content ul li {
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar li a .progress.completed {
     background-color: var(--color-green);
     color: var(--color-white);
+    border-radius: 2em;
+    padding: 0 0.3em;
 }
 .dci-internal-menu li:hover {
     color: var(--color-red);
