@@ -29,8 +29,7 @@
 .dci-accordion-heading {
     background: var(--color-blue);
     color: var(--color-white);
-    padding: 0.5em 0;
-    box-shadow: 600px 0 0 var(--color-blue), -600px 0 0 var(--color-blue);
+    padding: 0.5em 1em;
 }
 .dci-accordion div.il_VAccordionContentDef.ilAccHideContent {
     grid-template-rows: 0fr;

@@ -134,10 +134,12 @@ function toggleSideBar() {
 }
 
 function createMeter(progress) {
+    const normalizedProgress = Math.round(Math.min(progress, 100));
     const wrapper = document.createElement('div');
-    wrapper.className = "dci-meter";
+    wrapper.className = "dci-meter progress-" + (normalizedProgress < 50 ? 'red' : (normalizedProgress < 100 ? 'yellow' : 'green'));
+    wrapper.dataset.progress = normalizedProgress;
     wrapper.innerHTML = (
-        `<div class="dci-meter-progress" style="width:${Math.min(progress, 100)}%"></div>`
+        `<span class="dci-meter-value" style="left:${normalizedProgress}%">${normalizedProgress}%</span><div class="dci-meter-progress" style="width:${normalizedProgress}%"></div>`
     );
 
     return wrapper;

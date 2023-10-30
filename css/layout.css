@@ -4,7 +4,7 @@ body > .page {
     height: 100svh;
     overflow: hidden;
 
-    --sidebar-width: 15rem;
+    --sidebar-width: 22rem;
 }
 
 /* header */
@@ -16,7 +16,6 @@ header {
     background: var(--color-white);
     z-index: 1000;
     width: 100%;
-    max-width: 1700px;
     margin: 0 auto;
 }
 header .logo {
@@ -355,7 +354,6 @@ footer .il-footer-content ul li {
     background: var(--color-white);
     position: sticky;
     top: 0;
-    padding-top: 50px;
     font-size: var(--font-size-small);
     overflow: auto;
     z-index: 100;
@@ -420,7 +418,6 @@ footer .il-footer-content ul li {
     rotate: 180deg;
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner {
-    padding: 20px;
     width: var(--sidebar-width);
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar ul {
@@ -428,21 +425,15 @@ footer .il-footer-content ul li {
     list-style: none;
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner > ul > li {
-    padding: 0.7em 0;
+    padding: 0;
     margin: 0;
     cursor: pointer;
     position: relative;
+    border-bottom: 1px solid var(--color-light-grey);
 }
-.page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner > ul > li.selected:not(.is-root)::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -20px;
-    border-right: 6px solid var(--color-blue);
-    height: 100%;
-}
-.page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner > ul > li:not(.is-root) {
-    border-top: 1px dotted var(--color-grey);
+.page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner > ul > li.is-root {
+    font-weight: bold;
+    font-size: 1.3em;
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner > ul > li:nth-child(2) {
     border-top: none;
@@ -456,7 +447,9 @@ footer .il-footer-content ul li {
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar li a {
     text-decoration: none;
-    color: var(--color-xdark-grey);
+    padding: 0.7em;
+    color: var(--color-black);
+    font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -469,29 +462,29 @@ footer .il-footer-content ul li {
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar li.is-root a {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.6em;
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar li.selected a {
-    color: var(--color-blue);
-    font-size: var(--font-size-large);
-    font-weight: bold;
+    border-left: 5px solid var(--color-red);
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar li a .course-progress {
     display: block;
-    width: 100%;
+    width: 75%;
     position: relative;
-    margin-bottom: 5px;
+    margin: 0 auto;
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar li a .course-progress .dci-meter {
     display: block;
     width: 100%;
-    height: 5px;
-    background: var(--color-xlight-grey);
+    height: 10px;
+    background: var(--color-light-grey);
     color: var(--color-dark-grey);
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar li a .course-progress .dci-meter-progress {
     background-color: var(--color-red);
     height: 100%;
-    min-width: 10px;
+    min-width: 0.5em;
+    border-radius: 1em;
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar li a .progress.completed {
     background-color: var(--color-green);
@@ -509,17 +502,15 @@ footer .il-footer-content ul li {
 
 /* course page navbar */
 .dci-page-navbar {
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-xsmall);
     line-height: var(--font-size-xsmall);
-    font-weight: bold;
 }
 .dci-page-navbar ul:not(:empty) {
-    padding: 0 0 0.5em 0;
+    padding: 0.5em 0 0.5em 1.5em !important;
 }
 .dci-page-navbar li {
-    padding: 1em 0;
+    padding: 0.5em 0;
     margin: 0;
-    border-top: 1px solid var(--color-light-grey);
 }
 
 
