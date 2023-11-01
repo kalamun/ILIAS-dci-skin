@@ -138,6 +138,7 @@ function createMeter(progress) {
     const wrapper = document.createElement('div');
     wrapper.className = "dci-meter progress-" + (normalizedProgress < 50 ? 'red' : (normalizedProgress < 100 ? 'yellow' : 'green'));
     wrapper.dataset.progress = normalizedProgress;
+    wrapper.dataset.progressRange = Math.ceil(normalizedProgress/10) + "0";
     wrapper.innerHTML = (
         `<span class="dci-meter-value" style="left:${normalizedProgress}%">${normalizedProgress}%</span><div class="dci-meter-progress" style="width:${normalizedProgress}%"></div>`
     );
