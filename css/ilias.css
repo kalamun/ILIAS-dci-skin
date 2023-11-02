@@ -100,7 +100,7 @@
 }
 
 /* paragraph styles */
-body :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background) {
+body :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background, a.ilc_section_Background, div.ilc_section_hastag, a.ilc_section_hastag) {
     background: var(--color-xxlight-grey) !important;
     border: 1px solid var(--color-white) !important;
     outline: 10px solid var(--color-xxlight-grey) !important;
@@ -111,15 +111,15 @@ body :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Back
     padding-inline: 20px !important;
     margin: 10px;
 }
-body .flex-col :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background) {
+body .flex-col :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background, div.ilc_section_hastag, a.ilc_section_hastag) {
     height: calc(100% - 20px);
     width: calc(100% - 20px);
 }
-body :where(div.ilc_section_Background, a.ilc_section_Background) {
+body :where(div.ilc_section_Background, a.ilc_section_Background, a.ilc_section_hastag) {
     background: var(--color-light-grey) !important;
     outline-color: var(--color-light-grey) !important;
 }
-body :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background) :where(h1, h2, h3, h4, h5, h6) {
+body :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background, a.ilc_section_Background, div.ilc_section_hastag, a.ilc_section_hastag) :where(h1, h2, h3, h4, h5, h6) {
     margin: 0 !important;
 }
 .flex-col figure.ilc_media_cont_MediaContainer {
