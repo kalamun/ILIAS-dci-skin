@@ -66,20 +66,21 @@ body.is_course #ilContentContainer .dci-course-title {
     background: var(--color-xlight-grey);
     border-radius: 3em;
     white-space: nowrap;
+    height: 1em;
+    position: relative;
+    font-size: var(--font-size-xxsmall);
 }
 .dci-meter .dci-meter-value {
-    font-size: var(--font-size-xxsmall);
     font-weight: normal;
     position: absolute;
     bottom: 100%;
     transform: translateX(-50%);
     padding: 0 0.2em;
+    color: var(--color-black);
 }
 .kalamun-training-dashboard_course .dci-meter {
     background: var(--color-light-grey);
     padding: 0;
-    min-height: 8px;
-    border-radius: 0;
     position: absolute;
     left: 0;
     top: 0;
@@ -89,8 +90,9 @@ body.is_course #ilContentContainer .dci-course-title {
 }
 .dci-meter-progress {
     height: 100%;
-    min-width: 0.5em;
+    min-width: 1em;
     background: var(--color-red);
+    border-radius: 1em;
     position: absolute;
     top: 0;
     left: 0;
@@ -105,7 +107,7 @@ body.is_course #ilContentContainer .dci-course-title {
     background: var(--color-green);
 }
 .dci-meter:is([data-progress-range="00"], [data-progress-range="10"]) .dci-meter-value {
-    transform: translateX(0);
+    transform: translateX(1.2em);
 }
 .dci-meter[data-progress-range="100"] .dci-meter-value {
     transform: translateX(-100%);

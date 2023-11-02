@@ -84,19 +84,15 @@ function refactorCoursePage() {
                 }
             }, { threshold: [1] });
             
-            for(const size of [1,2,3,4,5,6]) {
-                const headings = rowWrapper.querySelectorAll(`h${size}`);
-                if (headings.length) {
-                    for (const [index, heading] of headings.entries()) {
-                        const internalMenuLi = document.createElement('li');
-                        internalMenuLi.innerHTML = heading.textContent.trim();
-                        internalMenuLi.addEventListener("click", () => scrollToElement(heading));
-                        internalMenuUl.appendChild(internalMenuLi);
-                        heading.dataset.index = index;
-                        observer.observe(heading);
-                    }
-    
-                    break;
+            const headings = rowWrapper.querySelectorAll(`.dci-accordion-heading h2`);
+            if (headings.length) {
+                for (const [index, heading] of headings.entries()) {
+                    const internalMenuLi = document.createElement('li');
+                    internalMenuLi.innerHTML = heading.textContent.trim();
+                    internalMenuLi.addEventListener("click", () => scrollToElement(heading));
+                    internalMenuUl.appendChild(internalMenuLi);
+                    heading.dataset.index = index;
+                    observer.observe(heading);
                 }
             }
         }
@@ -121,8 +117,11 @@ function refactorCoursePage() {
 
 
 function scrollToElement(elm) {
-    const top = elm?.getBoundingClientRect().top + document.body.scrollTop - 150;
-    document.querySelector('.dci-layout-page-content')?.scrollTo({top, behavior: "smooth"});
+    const container = document.querySelector('.dci-layout-page-content');
+    if (!container) return false;
+
+    const top = elm?.getBoundingClientRect().top + container.scrollTop - 150;
+    container.scrollTo({top, behavior: "smooth"});
 }
 
 function toggleSideBar() {
