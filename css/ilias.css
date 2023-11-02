@@ -100,7 +100,7 @@
 }
 
 /* paragraph styles */
-body :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background, a.ilc_section_Background, div.ilc_section_hastag, a.ilc_section_hastag) {
+body :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background, a.ilc_section_Background) {
     background: var(--color-xxlight-grey) !important;
     border: 1px solid var(--color-white) !important;
     outline: 10px solid var(--color-xxlight-grey) !important;
@@ -111,9 +111,13 @@ body :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Back
     padding-inline: 20px !important;
     margin: 10px;
 }
-body .flex-col :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background, div.ilc_section_hastag, a.ilc_section_hastag) {
+body .flex-col :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background) {
     height: calc(100% - 20px);
     width: calc(100% - 20px);
+}
+body .flex-col :where(div.ilc_section_hastag, a.ilc_section_hastag) {
+    height: 100%;
+    width: 100%;
 }
 body :where(div.ilc_section_Background, a.ilc_section_Background) {
     background: var(--color-light-grey) !important;
