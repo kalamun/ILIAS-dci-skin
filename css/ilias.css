@@ -115,7 +115,7 @@ body .flex-col :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_se
     height: calc(100% - 20px);
     width: calc(100% - 20px);
 }
-body :where(div.ilc_section_Background, a.ilc_section_Background, a.ilc_section_hastag) {
+body :where(div.ilc_section_Background, a.ilc_section_Background) {
     background: var(--color-light-grey) !important;
     outline-color: var(--color-light-grey) !important;
 }
