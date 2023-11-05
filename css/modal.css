@@ -44,9 +44,9 @@
 .dci-modal .dci-modal_close {
     font-size: var(--font-size-xlarge);
     padding: 0.2em;
-    color: var(--color-grey);
     cursor: pointer;
-    background: var(--color-white);
+    background: var(--color-red);
+    color: var(--color-white);
 }
 
 .dci-modal .dci-modal_body {
