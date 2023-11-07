@@ -1,4 +1,5 @@
-.dci-modal {
+.dci-modal,
+body div.ilc_iim_ContentPopup {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,7 +11,8 @@
     flex-direction: column;
     animation: dci-modal-fadein 0.5s ease-in-out forwards;
 }
-.dci-modal.is-video {
+.dci-modal.is-video,
+body div.ilc_iim_ContentPopup {
     width: 80svw;
     height: 80svh;
     left: 10svw;
@@ -73,4 +75,12 @@
     background: #000000A0;
     animation: dci-modal-fadein 0.5s ease-in-out forwards;
     cursor: pointer;
+}
+
+
+body div.ilc_iim_ContentPopup {
+    display: none;
+}
+.dci-modal_body-inner {
+    padding: 20px;
 }

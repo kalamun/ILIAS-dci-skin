@@ -106,6 +106,18 @@ function refactorCoursePage() {
         for (const link of rowWrapper.querySelectorAll('.ilc_Mob a[href*="cmd=displayMedia"], a.ilCOPageSection[target="_blank"]')) {
             link.addEventListener('click', openLinkInModal);
         }
+
+        /* transform interactive images to modals */
+        document.querySelectorAll(".ilc_iim_ContentPopup").forEach(popup => {
+            popup.style = "";
+            const area_id = popup.id?.replace('iim_popup_', '').replace('_1_', '_');
+            const area = document.querySelector(`area#marea_${area_id}`);
+            document.body.appendChild(popup);
+
+            if (area) {
+                area.addEventListener('click', openLinkInModal);
+            }
+        });
     }
 
     for (const oldMeter of document.querySelectorAll('meter')) {
@@ -153,28 +165,26 @@ function closeModal() {
 
 function openLinkInModal(e) {
     e.preventDefault();
+    e.stopImmediatePropagation();
 
     closeModal();
 
     const link = e.currentTarget || e.target;
     if (!link) return;
 
-    const isVideo = !!link.href.match(/\.mp4$/) || link.href.includes('cmd=displayMedia');
-
     const modalWrapper = document.createElement('DIV');
-    modalWrapper.className = `dci-modal${isVideo ? ' is-video' : ''}`;
-
+    
     const modalBkg = document.createElement('DIV');
     modalBkg.className = 'dci-modal_bkg';
     modalBkg.addEventListener('click', closeModal);
-
+    
     const modalHeader = document.createElement('DIV');
     modalHeader.className = 'dci-modal_header';
-
+    
     const modalTitle = document.createElement('DIV');
     modalTitle.className = 'dci-modal_title';
     modalTitle.appendChild( document.createTextNode(link.title) );
-
+    
     const modalClose = document.createElement('DIV');
     modalClose.className = 'dci-modal_close';
     modalClose.addEventListener('click', closeModal);
@@ -183,13 +193,34 @@ function openLinkInModal(e) {
     
     const modalBody = document.createElement('DIV');
     modalBody.className = 'dci-modal_body';
-    const modalBodyIframe = document.createElement('IFRAME');
-    modalBodyIframe.src = link.href;
+
+    let isVideo = false;
+    let modalBodyContent = false;
+
+    if (link.id?.startsWith('marea_')) {
+        /* interactive image popup */
+        isVideo = true;
+
+        const popupId = 'iim_popup_' + link.id?.replace('marea_', '').replace('_', '_1_');
+        const popup = document.querySelector('#' + popupId);
+        const modalBodyContentInner = popup?.querySelector('div')?.cloneNode(true);
+        modalBodyContent = document.createElement('div');
+        modalBodyContent.className = "dci-modal_body-inner";
+    if (modalBodyContentInner) modalBodyContent.appendChild(modalBodyContentInner);
+
+    } else {
+        isVideo = !!link.href.match(/\.mp4$/) || link.href.includes('cmd=displayMedia');
+        
+        modalBodyContent = document.createElement('IFRAME');
+        modalBodyContent.src = link.href;
+    }
+    
+    modalWrapper.className = `dci-modal${isVideo ? ' is-video' : ''}`;
 
     modalHeader.appendChild(modalTitle);
     modalClose.appendChild(modalCloseSpan);
     modalHeader.appendChild(modalClose);
-    modalBody.appendChild(modalBodyIframe);
+    modalBody.appendChild(modalBodyContent);
     modalWrapper.appendChild(modalBkg);
     modalWrapper.appendChild(modalHeader);
     modalWrapper.appendChild(modalBody);
