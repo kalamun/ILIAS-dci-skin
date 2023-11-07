@@ -201,7 +201,7 @@ function openLinkInModal(e) {
         /* interactive image popup */
         isVideo = true;
 
-        const popupId = 'iim_popup_' + link.id?.replace('marea_', '').replace('_', '_1_');
+        const popupId = 'iim_popup_' + link.id?.replace('marea_', '') + '_1';
         const popup = document.querySelector('#' + popupId);
         const modalBodyContentInner = popup?.querySelector('div')?.cloneNode(true);
         modalBodyContent = document.createElement('div');
@@ -210,6 +210,9 @@ function openLinkInModal(e) {
         modalBodyContent.querySelectorAll('.ilc_Mob').forEach(ilcMob => {
             const video = ilcMob.querySelector('video')?.cloneNode(true);
             if (video) {
+                video.removeAttribute("height");
+                video.setAttribute("controls", "true");
+                video.setAttribute("autoplay", "true");
                 ilcMob.innerHTML = "";
                 ilcMob.appendChild(video);
             }
