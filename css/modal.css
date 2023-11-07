@@ -55,6 +55,7 @@ body div.ilc_iim_ContentPopup {
     flex-grow: 2;
     position: relative;
     background: var(--color-black);
+    color: var(--color-white);
 }
 .dci-modal .dci-modal_body iframe {
     position: absolute;
