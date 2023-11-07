@@ -63,7 +63,7 @@ body.is_course #ilContentContainer .dci-course-title {
 
 /* meter */
 .dci-meter {
-    background: var(--color-xlight-grey);
+    background: var(--color-light-grey);
     border-radius: 3em;
     white-space: nowrap;
     height: 1em;

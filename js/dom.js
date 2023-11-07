@@ -110,7 +110,7 @@ function refactorCoursePage() {
         /* transform interactive images to modals */
         document.querySelectorAll(".ilc_iim_ContentPopup").forEach(popup => {
             popup.style = "";
-            const area_id = popup.id?.replace('iim_popup_', '').replace('_1_', '_');
+            const area_id = popup.id?.replace('iim_popup_', '').replace(/_1$/, '');
             const area = document.querySelector(`area#marea_${area_id}`);
             document.body.appendChild(popup);
 
@@ -206,7 +206,15 @@ function openLinkInModal(e) {
         const modalBodyContentInner = popup?.querySelector('div')?.cloneNode(true);
         modalBodyContent = document.createElement('div');
         modalBodyContent.className = "dci-modal_body-inner";
-    if (modalBodyContentInner) modalBodyContent.appendChild(modalBodyContentInner);
+        if (modalBodyContentInner) modalBodyContent.appendChild(modalBodyContentInner);
+        modalBodyContent.querySelectorAll('.ilc_Mob').forEach(ilcMob => {
+            const video = ilcMob.querySelectorAll('video')?.cloneNode(true);
+            if (video) {
+                ilcMob.innerHTML = "";
+                ilcMob.appendChild(video);
+            }
+            ilcMob.classList.add('dci-video');
+        });
 
     } else {
         isVideo = !!link.href.match(/\.mp4$/) || link.href.includes('cmd=displayMedia');

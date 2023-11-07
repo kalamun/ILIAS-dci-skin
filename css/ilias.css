@@ -128,5 +128,5 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
     margin-top: 30px !important;
 }
 .flex-col figure.ilc_media_cont_MediaContainer {
-    margin: 0;
+    margin: 0 auto !important;
 }
