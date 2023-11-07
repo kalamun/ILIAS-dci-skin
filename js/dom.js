@@ -208,7 +208,7 @@ function openLinkInModal(e) {
         modalBodyContent.className = "dci-modal_body-inner";
         if (modalBodyContentInner) modalBodyContent.appendChild(modalBodyContentInner);
         modalBodyContent.querySelectorAll('.ilc_Mob').forEach(ilcMob => {
-            const video = ilcMob.querySelectorAll('video')?.cloneNode(true);
+            const video = ilcMob.querySelector('video')?.cloneNode(true);
             if (video) {
                 ilcMob.innerHTML = "";
                 ilcMob.appendChild(video);
