@@ -102,8 +102,6 @@
 /* paragraph styles */
 body :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background, a.ilc_section_Background) {
     background: var(--color-xxlight-grey) !important;
-    border: 1px solid var(--color-white) !important;
-    outline: 10px solid var(--color-xxlight-grey) !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,7 +110,7 @@ body :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Back
     margin: 10px;
 }
 body .flex-col :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background) {
-    width: calc(100% - 20px);
+    width: 100%;
     margin: 0 !important;
 }
 body .flex-col :where(div.ilc_section_hastag, a.ilc_section_hastag) {
