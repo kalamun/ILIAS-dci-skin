@@ -84,7 +84,7 @@ function refactorCoursePage() {
                 }
             }, { threshold: [1] });
             
-            const headings = rowWrapper.querySelectorAll(`.dci-accordion-heading h2, #il_center_col > h2`);
+            const headings = rowWrapper.querySelectorAll(`.dci-accordion-heading h2, #il_center_col > h2, .ilc_va_cntr_VAccordCntr h2`);
             if (headings.length) {
                 for (const [index, heading] of headings.entries()) {
                     const internalMenuLi = document.createElement('li');
