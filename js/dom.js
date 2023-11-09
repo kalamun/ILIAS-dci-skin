@@ -163,6 +163,31 @@ function closeModal() {
     }
 }
 
+function reloadCard(card) {
+    if (!card) return false;
+    fetch(window.location.href)
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            const query = `.kalamun-card[data-id="${card.dataset.id}"]`;
+            const newCard = doc.querySelector(query);
+            if (newCard) {
+                card.parentNode.insertBefore(newCard, card);
+                card.parentNode.removeChild(card);
+
+                for (const oldMeter of newCard.querySelectorAll('meter')) {
+                    const meter = createMeter(Number(oldMeter.getAttribute('value')));
+                    oldMeter.parentNode.insertBefore(meter, oldMeter);
+                    oldMeter.parentNode.removeChild(oldMeter, true);
+                }
+            }
+        })
+        .catch(function(err) {  
+            console.log('Failed to fetch page: ', err);  
+        });
+}
+
 function openLinkInModal(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -171,6 +196,14 @@ function openLinkInModal(e) {
 
     const link = e.currentTarget || e.target;
     if (!link) return;
+
+    let parentCard = false;
+    for (let parent = link; parent; parent = parent.parentNode) {
+        if (parent.classList.contains('kalamun-card')) {
+            parentCard = parent;
+            break;
+        }
+    }
 
     const modalWrapper = document.createElement('DIV');
     
@@ -188,6 +221,9 @@ function openLinkInModal(e) {
     const modalClose = document.createElement('DIV');
     modalClose.className = 'dci-modal_close';
     modalClose.addEventListener('click', closeModal);
+    if (parentCard) {
+        modalClose.addEventListener('click', () => reloadCard(parentCard));
+    }
     const modalCloseSpan = document.createElement('SPAN');
     modalCloseSpan.className = 'icon-close';
     
