@@ -27,7 +27,7 @@
     height: auto !important;
 }
 .dci-accordion-heading {
-    background: var(--il-Accent-color, var(--color-blue));
+    background: var(--il-HAccordICntr-background-color, var(--il-Accent-color, var(--color-blue)));
     color: var(--color-white);
     padding: 0.5em 1em;
 }
@@ -81,6 +81,7 @@
 .dci-accordion .accordion-progress {
     padding: 0.3em 1em;
     font-size: 1rem;
+    border-radius: 3em;
 }
 .dci-accordion .accordion-progress.completed {
     background: var(--color-green);
