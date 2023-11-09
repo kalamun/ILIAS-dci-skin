@@ -181,6 +181,13 @@ function reloadCard(card) {
                     oldMeter.parentNode.insertBefore(meter, oldMeter);
                     oldMeter.parentNode.removeChild(oldMeter, true);
                 }
+
+                /* open scorm in modal */
+                if (["htlm", "sahs"].includes(newCard.dataset.type)) {
+                    for (const link of newCard.querySelectorAll('a')) {
+                        link.addEventListener('click', openLinkInModal);
+                    }
+                }
             }
         })
         .catch(function(err) {  

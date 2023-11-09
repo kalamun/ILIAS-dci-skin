@@ -86,6 +86,7 @@
 .dci-accordion .accordion-progress.completed {
     background: var(--color-green);
     color: var(--color-white);
+    border: 3px solid;
 }
 .dci-accordion .accordion-progress [class^="icon-"] {
     margin-right: 0.5em;
