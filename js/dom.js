@@ -199,7 +199,7 @@ function openLinkInModal(e) {
 
     let parentCard = false;
     for (let parent = link; parent; parent = parent.parentNode) {
-        if (parent.classList.contains('kalamun-card')) {
+        if (parent?.classList?.contains('kalamun-card')) {
             parentCard = parent;
             break;
         }
