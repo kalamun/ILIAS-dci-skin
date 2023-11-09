@@ -27,7 +27,7 @@
     height: auto !important;
 }
 .dci-accordion-heading {
-    background: var(--il-HAccordICntr-background-color, var(--il-Accent-color, var(--color-blue)));
+    background: var(--il-VAccordIHead-background-color, var(--il-Accent-color, var(--color-blue)));
     color: var(--color-white);
     padding: 0.5em 1em;
 }
