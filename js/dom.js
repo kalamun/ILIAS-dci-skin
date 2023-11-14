@@ -189,6 +189,40 @@ function reloadCard(card) {
                     }
                 }
             }
+
+            const newHeadings = doc.querySelectorAll('.dci-accordion-heading');
+            const oldHeadings = document.querySelectorAll('.dci-accordion-heading');
+            oldHeadings?.forEach((heading, i) => {
+                if (newHeadings[i]) {
+                    heading.parentNode.insertBefore(newHeadings[i], heading);
+                    heading.parentNode.removeChild(heading);
+                }
+            });
+
+            const queryCourseProgress = '.dci-course-tabs-inner span.course-progress';
+            const newMenuCourseProgress = doc.querySelectorAll(queryCourseProgress);
+            const oldMenuCourseProgress = document.querySelectorAll(queryCourseProgress);
+            oldMenuCourseProgress?.forEach((progress, i) => {
+                if (newMenuCourseProgress[i]) {
+                    progress.parentNode.insertBefore(newMenuCourseProgress[i], progress);
+                    progress.parentNode.removeChild(progress);
+                    for (const oldMeter of newMenuCourseProgress[i].querySelectorAll('meter')) {
+                        const meter = createMeter(Number(oldMeter.getAttribute('value')));
+                        oldMeter.parentNode.insertBefore(meter, oldMeter);
+                        oldMeter.parentNode.removeChild(oldMeter, true);
+                    }               
+                }
+            });
+
+            const queryMenuProgress = '.dci-course-tabs-inner span.progress';
+            const newMenuProgress = doc.querySelectorAll(queryMenuProgress);
+            const oldMenuProgress = document.querySelectorAll(queryMenuProgress);
+            oldMenuProgress?.forEach((progress, i) => {
+                if (newMenuProgress[i]) {
+                    progress.parentNode.insertBefore(newMenuProgress[i], progress);
+                    progress.parentNode.removeChild(progress);
+                }
+            });
         })
         .catch(function(err) {  
             console.log('Failed to fetch page: ', err);  

@@ -46,7 +46,7 @@
 .dci-accordion div.ilc_va_iheada_VAccordIHeadActive:hover {
     font-size: inherit;
     padding: 0.5em 1em;
-    background: var(--il-Accent-color, var(--color-blue));
+    background: var(--il-VAccordIHead-background-color, var(--il-Accent-color, var(--color-blue)));
     color: var(--color-white);
     text-transform: none;
 }
