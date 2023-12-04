@@ -28,7 +28,7 @@
 }
 .dci-accordion-heading {
     background: var(--il-VAccordIHead-background-color, var(--il-Accent-color, var(--color-blue)));
-    color: var(--color-white);
+    color: var(--il-VAccordIHead-color, var(--color-white));
     padding: 0.5em 1em;
 }
 .dci-accordion div.il_VAccordionContentDef.ilAccHideContent {
@@ -47,7 +47,7 @@
     font-size: inherit;
     padding: 0.5em 1em;
     background: var(--il-VAccordIHead-background-color, var(--il-Accent-color, var(--color-blue)));
-    color: var(--color-white);
+    color: var(--il-VAccordIHead-color, var(--color-white));
     text-transform: none;
 }
 .dci-accordion .il_VAccordionToggleDef {
