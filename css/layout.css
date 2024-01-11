@@ -426,6 +426,9 @@ footer .il-footer-content ul li {
     padding: 0;
     list-style: none;
 }
+.page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar ul ul {
+    margin-left: 1em;
+}
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar .dci-course-tabs-inner > ul > li {
     padding: 0;
     margin: 0;
@@ -465,7 +468,7 @@ footer .il-footer-content ul li {
     align-items: center;
     gap: 1em;
 }
-.page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar li.selected a {
+.page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar li.selected > a {
     border-left: 5px solid var(--color-red);
 }
 .page > .dci-page-wrapper > .dci-layout-page-content > .dci-sidebar li a .course-progress {
