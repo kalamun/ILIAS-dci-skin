@@ -722,6 +722,7 @@ div.ilStartupSection form.form-horizontal {
     width: 100%;
     max-width: 40rem;
     min-width: 350px;
+    padding: 3rem 3rem 0 3rem;
 }
 
 div.ilStartupSection form[name="formlogin"] .form-group > * {
