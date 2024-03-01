@@ -98,7 +98,7 @@ function refactorCoursePage() {
         }
 
         /* open scorm in modal */
-        for (const link of rowWrapper.querySelectorAll('.kalamun-card:where([data-type=sahs], [data-type=htlm], [data-type=html]) a')) {
+        for (const link of rowWrapper.querySelectorAll('.kalamun-card:where([data-type=sahs], [data-type=htlm], [data-type=html], [data-type=file]) a')) {
             link.addEventListener('click', openLinkInModal);
         }
         
