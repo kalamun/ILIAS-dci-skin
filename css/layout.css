@@ -621,5 +621,154 @@ footer .il-footer-content ul li {
     align-items: end;
     justify-content: space-between;
     padding-bottom: 10px;
+    min-width: 24rem;
 }
 
+
+/* login page */
+
+body.is_login .il-layout-page-content {
+    min-height: 80svh;
+}
+.is_login #ilContentContainer {
+    padding: 0;
+    max-width: 100svw;
+}
+.is_login .page > .dci-page-wrapper > .dci-layout-page-content > .dci-main-content {
+    padding: 0;
+}
+.is_login header {
+    display: none;
+}
+.ilLogin_wrapper {
+    width: 100svw;
+    translate: -50% 0;
+    position: relative;
+    left: 50%;
+    gap: 3rem;
+    min-height: calc(100svh - 2.6rem);
+}
+.ilLogin_wrapper > * {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.ilLogin_wrapper .ilLogin_form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-height: 90svh;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+.ilLogin_wrapper .ilLogin_form div.ilc_section_Block {
+    margin: 0 !important;
+    padding: 0 3rem 2rem;
+}
+.ilLogin_wrapper .ilLogin_form .ilFormHeader h2.ilHeader {
+    margin: 0 !important;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+.ilLogin_wrapper .ilLogin_form .form-horizontal .form-group {
+    display: flex;
+    flex-direction: column;
+    border-top: 0;
+}
+.ilLogin_wrapper .ilLogin_thumbnail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.ilLogin_wrapper .ilLogin_thumbnail.hidden {
+    max-width: 0;
+}
+.ilLogin_wrapper img.login-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+body.is_login div.ilAdminRow {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.ilLogin_form > div {
+    background: #fff3;
+    color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    min-width: 30rem;
+    backdrop-filter: blur(0.3rem);
+}
+.ilLogin_form .ilFormHeader {
+    padding: 0 !important;
+}
+.ilLogin_form .ilFormFooter {
+    margin-top: 10px;
+}
+.ilLogin_form .ilFormFooter .ilFormRequired {
+    font-size: var(--font-size-xxsmall);
+    text-align: left;
+    color: var(--color-grey);
+}
+.ilLogin_form .ilFormFooter .ilFormCmds {
+    text-align: right;
+}
+div.ilStartupSection form.form-horizontal .ilFormHeader {
+    background: transparent;
+}
+div.ilStartupSection form.form-horizontal {
+    border: 0;
+    width: 100%;
+    max-width: 40rem;
+    min-width: 350px;
+    padding: 3rem 3rem 0 3rem;
+}
+
+div.ilStartupSection form[name="formlogin"] .form-group > * {
+    float: none;
+    width: 100%;
+}
+div.ilStartupSection form[name="formlogin"] .form-group label {
+    font-size: var(--font-size-xsmall);
+}
+div.ilStartupSection form[name="formlogin"] :is(.ilFormRequired, .asterisk) {
+    visibility: hidden;
+}
+div.ilStartupSection form[name="formlogin"] :is(.ilFormHeader, .ilFormFooter, .form-group > *) {
+    padding-left: 0;
+    padding-right: 0;
+}
+div.ilStartupSection :is(a.il_ContainerItemCommand2:link, a.il_ContainerItemCommand2:visited, a.il_ContainerItemCommand:link, a.il_ContainerItemCommand:visited) {
+    font-size: var(--font-size-xxsmall);
+    display: block;
+    text-align: center;
+    margin: 0;
+}
+div:is(.ilLogin_form, .ilStartupSection) input:is([type="text"], [type="password"]) {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .ilLogin_wrapper {
+        flex-direction: column;
+    }
+    .ilLogin_wrapper .ilLogin_thumbnail.visible {
+        max-height: 200px;
+    }
+    .ilLogin_wrapper img.login-thumbnail {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+    }
+}
