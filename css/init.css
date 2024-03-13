@@ -71,6 +71,9 @@ iframe {
     display: none;
 }
 
+.ilAccHidden {
+	display: none;
+}
 
 /* forms */
 
@@ -78,6 +81,9 @@ input, select, textarea {
 	background:var(--color-white);
 	border:1px solid var(--color-grey);
 	padding:0.3em 0.5em;
+}
+textarea {
+	width: 100%;
 }
 
 label, input, select, button {

@@ -5,7 +5,7 @@
 .ilAccHeadingHidden {
     display: none;
 }
-#mainscrolldiv > ul#ilTab {
+body:not(.is_inbox) #mainscrolldiv > ul#ilTab {
     display: none;
 }
 

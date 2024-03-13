@@ -170,6 +170,30 @@ header .metabar .il-metabar-more-button {
 header .nav .il-mainbar-tools-button {
     display: none;
 }
+header .metabar ul .dci-main-slate :is(.il-maincontrols-slate-notification-title, .il-item-properties) {
+    display: none;
+}
+header .metabar ul .dci-main-slate .media-body {
+    position: relative;
+}
+header .metabar ul .dci-main-slate .media-body .il-item-notification-title {
+    border-bottom: 1px solid var(--color-xlight-grey);
+    padding-bottom: 0.4em;
+    margin: 0 0 0.4em 0;
+}
+header .metabar ul .dci-main-slate .media-body .il-item-notification-title a {
+    text-transform: uppercase;
+    color: var(--color-black);
+}
+header .metabar ul .dci-main-slate .media-body a {
+    text-transform: none;
+    color: var(--color-red);
+}
+header .metabar ul .dci-main-slate .media-body .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
 .dci-mainbar-li .il-counter {
     position: absolute;
@@ -604,6 +628,10 @@ footer .il-footer-content ul li {
 .form-horizontal .help-block {
     color: var(--color-grey);
     font-size: 0.8em;
+    line-height: 0.8em;
+}
+.form-horizontal .radio .help-block {
+    margin-left: 1.5rem;
 }
 
 .ilFormHeader {

@@ -8,3 +8,11 @@
 .is_inbox .ilToolbar.navbar.navbar-default {
     display: none;
 }
+
+.is_inbox :is(#ilTab, #isSubTab) {
+    display: flex;
+}
+
+.is_inbox .ilHeaderDesc {
+    display: none;
+}
