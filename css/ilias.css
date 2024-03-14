@@ -164,3 +164,26 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
 .flex-col figure.ilc_media_cont_MediaContainer {
     margin: 0 auto !important;
 }
+
+/* dropdowns */
+.dropdown, .btn-group {
+    position: relative;
+}
+:is(.dropdown, .btn-group) > .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 100%;
+    background: var(--color-white);
+    list-style: none;
+    padding: 0.5em;
+    margin: 0;
+    box-shadow: var(--box-shadow);
+    display: none;
+}
+:is(.dropdown, .btn-group):hover {
+    z-index: 1000;
+}
+:is(.dropdown, .btn-group):hover > .dropdown-menu {
+    display: block;
+}
