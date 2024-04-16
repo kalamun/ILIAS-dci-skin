@@ -215,11 +215,11 @@ small {
 	font-size: .85em;
 }
 
-a {
+a[href] {
 	color: var(--color-red);
 	text-decoration: none !important;
 }
-a:hover {
+a[href]:hover {
 	color: var(--color-red);
 	text-decoration: underline !important;
 }

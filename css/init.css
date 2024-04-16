@@ -24,6 +24,12 @@ body {
 	overflow-x: hidden;
 }
 
+ul.nav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
 ol, ul {
 	padding-left: 2em;
 }
@@ -40,18 +46,41 @@ blockquote {
 	outline: 0;
 }
 
+
+/* table */
+
 table {
 	border-style: none;
 	border-collapse: separate;
 	border-spacing: 0;
 	border: 0;
 	max-width: 100% ;
+	line-height: 1.2;
+}
+
+table th {
+  font-size: var(--font-size-xxsmall);
+  line-height: var(--font-size-xxsmall);
+  border-bottom: 1px solid var(--color-grey);
+	padding: 8px 2px;
+	vertical-align: top;
 }
 
 table td {
-	padding: 2px;
+	padding: 8px 2px;
 	vertical-align: top;
 }
+
+table.table-striped {
+	background: var(--color-white);
+  color: var(--color-black);
+  padding: 10px;
+}
+table.table-striped tr:nth-child(2n) td {
+	background: var(--color-xxlight-grey);
+}
+
+
 
 img,
 object,
@@ -75,6 +104,10 @@ iframe {
 	display: none;
 }
 
+.hidden {
+	display: none !important;
+}
+
 /* forms */
 
 input, select, textarea {
@@ -92,9 +125,11 @@ label, input, select, button {
 
 .dci-course-page button,
 input[type=button],
-input[type=submit] {
+input[type=submit],
+.btn-primary,
+.btn-default {
 	background: var(--color-red);
-	color: var(--color-white);
+	color: var(--color-white) !important;
 	border: 0;
 	padding: 0.8em 1.5em;
 	display: inline-block;
@@ -104,8 +139,12 @@ input[type=submit] {
 }
 :is(.dci-course-page button,
 	input[type=button],
-	input[type=submit]):hover {
+	input[type=submit],
+	.btn-primary:hover,
+	.btn-default):hover {
     background: var(--color-light-red);
+		color: var(--color-white);
+		text-decoration: none !important;
 }
 :is(.dci-course-page button,
 	input[type=button],
@@ -173,3 +212,5 @@ input[type=radio]:checked:before {
 	height: 0.8em;
 	border-radius: 1em;
 }
+
+

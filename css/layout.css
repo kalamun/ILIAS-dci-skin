@@ -624,7 +624,8 @@ footer .il-footer-content ul li {
 
 .form-horizontal .form-group {
     padding: 10px 0;
-    border-top: 1px solid var(--color-xlight-grey);
+    border-top: 1px solid var(--color-grey);
+    gap: 2em;
 }
 .form-horizontal .help-block {
     color: var(--color-grey);
@@ -633,6 +634,13 @@ footer .il-footer-content ul li {
 }
 .form-horizontal .radio .help-block {
     margin-left: 1.5rem;
+}
+.form-horizontal .form-group .il_InfoScreenProperty {
+    flex-basis: 30%;
+    color: var(--color-light-grey);
+    text-align: right;
+}    
+.form-horizontal .form-group .il_InfoScreenPropertyValue {
 }
 
 .ilFormHeader {
