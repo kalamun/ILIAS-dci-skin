@@ -274,3 +274,37 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
 .ilExcAssignmentBody h2 {
     margin-top: 0.8em !important;
 }
+
+
+
+nav.ilToolbar {
+    position: relative;
+}
+nav.ilToolbar .navbar-collapse {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 200px;
+    top: 100%;
+    z-index: 100;
+    box-shadow: var(--box-shadow);
+}
+nav.ilToolbar .navbar-collapse.in {
+    display: block;
+}
+nav.ilToolbar .navbar-collapse li {
+    margin: 0;
+}
+nav.ilToolbar .navbar-collapse li a {
+    text-transform: none;
+    background: var(--color-white);
+    color: var(--color-black) !important;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0.5em;
+    border-bottom: 1px solid var(--color-light-grey);
+    width: 100%;
+}
+nav.ilToolbar .navbar-collapse li a:hover {
+    color: var(--color-red) !important;
+}
