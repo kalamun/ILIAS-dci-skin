@@ -264,6 +264,7 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
 .ilExcAssignmentHead img {
     display: block;
     max-width: 1em;
+    filter: brightness(10);
 }
 .ilExcAssignmentBody {
     padding: 20px;

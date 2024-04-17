@@ -34,7 +34,7 @@
   font-style: normal;
 }
 
-[class^="icon-"]:before, [class*=" icon-"]:before {
+[class^="icon-"]:before, [class*=" icon-"]:before, .glyphicon:before {
   font-family: "dci-icons";
   font-style: normal;
   font-weight: normal;
@@ -156,6 +156,8 @@
 .icon-trash:before { content: '\f1f8'; } /* '' */
 .icon-question:before { content: '\f29c'; } /* '' */
 
+.glyphicon.glyphicon-plus:before { content: '\e819'; }
+.glyphicon.glyphicon-minus:before { content: '\e809'; }
 
 
 html, body, input, select, textarea, button {

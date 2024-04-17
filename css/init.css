@@ -169,6 +169,14 @@ input[type=submit],
 	margin-top: -1em;
 	margin-bottom: -1em;
 }
+.btn-link {
+	background: transparent;
+	padding: 0;
+}
+.btn-link span[class^="icon-"] {
+	margin-right: 0;
+	margin-left: 0;
+}
 
 input[type=checkbox] {
 	appearance: none;
@@ -181,6 +189,7 @@ input[type=checkbox] {
 	margin: 0 5px;
 	vertical-align: middle;
 	position: relative !important;
+	color: var(--color-black);
 }
 input[type=checkbox]:checked:before {
 	font-family: 'dci-icons';
@@ -188,7 +197,7 @@ input[type=checkbox]:checked:before {
 	position: absolute;
 	top: 0;
 	left: -0.1em;
-	font-size: 1em;
+	font-size: 1.4em;
 	line-height: .8;
 }
 
