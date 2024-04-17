@@ -238,7 +238,7 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
 #tst_output {
     display: flex;
 }
-#tst_left {
+#tst_left:not(:empty) {
     border-right: 1px solid var(--color-xlight-grey);
     margin-right: 50px;
     padding-right: 50px;
@@ -251,6 +251,9 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
 }
 #tst_left ul {
     list-style: none;
+}
+#tst_right {
+    flex-grow: 2;
 }
 #tst_right .ilToolbar {
     float: right;
