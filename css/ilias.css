@@ -235,6 +235,10 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
     display: none;
 }
 
+.il_InfoScreenPropertyValue a[href="#"]:last-child {
+    display: none;
+}
+
 #tst_output {
     display: flex;
 }
