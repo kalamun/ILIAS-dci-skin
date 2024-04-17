@@ -225,12 +225,32 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
     float: right;
     position: relative;
     z-index: 100;
+    display: flex;
+    gap: 0.5em;
 }
 #tst_discard_solution_modal {
     display: none;
 }
 .ilTestQuestionSubtitleBlocks .pull-right {
     display: none;
+}
+
+#tst_output {
+    display: flex;
+}
+#tst_left {
+    border-right: 1px solid var(--color-xlight-grey);
+    margin-right: 50px;
+    padding-right: 50px;
+    font-size: 0.8em;
+    line-height: 1;
+}
+#tst_left h2 {
+    font-size: var(--font-size-normal) !important;
+    margin-top: 5rem !important;
+}
+#tst_left ul {
+    list-style: none;
 }
 #tst_right .ilToolbar {
     float: right;
@@ -276,7 +296,6 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
 }
 
 
-
 nav.ilToolbar {
     position: relative;
 }
@@ -307,4 +326,5 @@ nav.ilToolbar .navbar-collapse li a {
 }
 nav.ilToolbar .navbar-collapse li a:hover {
     color: var(--color-red) !important;
+    background: var(--color-white) !important;
 }

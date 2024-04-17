@@ -68,6 +68,7 @@
 .icon-arrow-left:before { content: '\e80e'; } /* '' */
 .icon-spin:before { content: '\e80f'; } /* '' */
 .icon-down:before { content: '\e810'; } /* '' */
+.icon-bar + .icon-bar + .icon-bar:before { content: '\e810'; } /* '' */
 .icon-book:before { content: '\e811'; } /* '' */
 .icon-arrow-right:before { content: '\e812'; } /* '' */
 .icon-hpanels:before { content: '\e813'; } /* '' */
