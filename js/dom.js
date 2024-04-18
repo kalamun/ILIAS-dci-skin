@@ -3,7 +3,27 @@ window.addEventListener("DOMContentLoaded", () => {
     initSideBar();
     initDashboard();
     refactorCoursePage();
+    initLayout();
 });
+
+function initLayout() {
+    if (window.parent !== window) {
+        const pageContent = document.querySelector('.dci-layout-page-content');
+
+        const header = document.querySelector('.page > header');
+        if (header) header.parentNode.removeChild(header);
+        
+        const footer = pageContent.querySelector('footer');
+        if (footer) footer.parentNode.removeChild(footer);
+
+        const sideBar = document.querySelector('.page .dci-sidebar');
+        if (sideBar) {
+            sideBar.innerHTML = "";
+            sideBar.classList.toggle("closed", true);
+            pageContent.classList.toggle("sidebar-closed", true);
+        }
+    }
+}
 
 function initMenu() {
     for ( const element of document.querySelectorAll('.il-mainbar .dci-mainbar-li-submenu a.il-link.link-bulky')) {
@@ -98,7 +118,7 @@ function refactorCoursePage() {
         }
 
         /* open scorm in modal */
-        for (const link of rowWrapper.querySelectorAll('.kalamun-card:where([data-type=sahs], [data-type=htlm], [data-type=html], [data-type=file]) a')) {
+        for (const link of rowWrapper.querySelectorAll('.kalamun-card:where([data-type=sahs], [data-type=htlm], [data-type=html], [data-type=file], [data-type=exc], [data-type=tst]) a')) {
             link.addEventListener('click', openLinkInModal);
         }
         
