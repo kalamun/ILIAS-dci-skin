@@ -17,6 +17,7 @@ html, body {
 }
 
 body {
+	background: var(--color-white);
 	line-height: 1.4em;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;

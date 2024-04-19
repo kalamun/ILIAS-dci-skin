@@ -227,6 +227,8 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
     z-index: 100;
     display: flex;
     gap: 0.5em;
+    line-height: var(--font-size-normal);
+    font-size: var(--font-size-small);
 }
 #tst_discard_solution_modal {
     display: none;
