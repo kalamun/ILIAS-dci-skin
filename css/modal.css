@@ -1,3 +1,7 @@
+.il-modal-lightbox-page {
+    display: none;
+}
+
 .dci-modal,
 body div.ilc_iim_ContentPopup {
     position: fixed;
