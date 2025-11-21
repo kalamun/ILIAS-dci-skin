@@ -796,6 +796,14 @@ div:is(.ilLogin_form, .ilStartupSection) input:is([type="text"], [type="password
     width: 100%;
 }
 
+/* CGU */
+#fixed_content {
+    position: relative;
+    padding: 5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 @media (max-width: 768px) {
     .ilLogin_wrapper {
         flex-direction: column;
