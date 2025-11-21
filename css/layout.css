@@ -91,7 +91,7 @@ header .metabar :where(a, button) {
     margin: 0;
 }
 header .nav .dci-mainbar-li,
-header .metabar .dci-mainbar-li {
+header .metabar li {
     list-style: none;
     margin: 0;
 }
@@ -330,6 +330,10 @@ footer .il-footer-content ul {
 }
 footer .il-footer-content ul li {
     display: inline-block;
+}
+footer .il-footer-links button {
+  color: var(--color-red);
+  font-size: var(--font-size-xxxsmall);
 }
 
 /* columns */
@@ -803,10 +807,11 @@ div:is(.ilLogin_form, .ilStartupSection) input:is([type="text"], [type="password
 
 /* CGU */
 .modal {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    padding: 5rem;
+    padding: 5rem !important;
     background: var(--color-white);
     height: calc(100svh - 5rem);
     overflow: auto;
