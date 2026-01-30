@@ -205,7 +205,7 @@ function reloadCard(card) {
                     }
     
                     /* open scorm in modal */
-                    if (["htlm", "sahs"].includes(newCard.dataset.type)) {
+                    if (["sahs", "htlm", "html", "file", "exc", "tst", "copa"].includes(newCard.dataset.type)) {
                         for (const link of newCard.querySelectorAll('a')) {
                             link.addEventListener('click', openLinkInModal);
                         }
