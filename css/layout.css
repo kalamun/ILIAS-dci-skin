@@ -4,7 +4,7 @@ body > .page {
     height: 100svh;
     overflow: hidden;
 
-    --sidebar-width: 22rem;
+    --sidebar-width: 25rem;
 }
 
 /* header */
