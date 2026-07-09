@@ -191,24 +191,27 @@ function reloadCard(card) {
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, "text/html");
             const query = `.kalamun-card[data-id="${card.dataset.id}"]`;
-            const newCard = doc.querySelector(query);
-            if (newCard) {
-                card.parentNode.insertBefore(newCard, card);
-                card.parentNode.removeChild(card);
-
-                for (const oldMeter of newCard.querySelectorAll('meter')) {
-                    const meter = createMeter(Number(oldMeter.getAttribute('value')));
-                    oldMeter.parentNode.insertBefore(meter, oldMeter);
-                    oldMeter.parentNode.removeChild(oldMeter, true);
-                }
-
-                /* open scorm in modal */
-                if (["htlm", "sahs"].includes(newCard.dataset.type)) {
-                    for (const link of newCard.querySelectorAll('a')) {
-                        link.addEventListener('click', openLinkInModal);
+            const originalCards = Array.from(document.body.querySelectorAll(query));
+            Array.from(doc.querySelectorAll(query)).forEach((newCard, index) => {
+                const originalCard = originalCards[index];
+                if (originalCard) {
+                    originalCard.parentNode.insertBefore(newCard, originalCard);
+                    originalCard.parentNode.removeChild(originalCard);
+    
+                    for (const oldMeter of newCard.querySelectorAll('meter')) {
+                        const meter = createMeter(Number(oldMeter.getAttribute('value')));
+                        oldMeter.parentNode.insertBefore(meter, oldMeter);
+                        oldMeter.parentNode.removeChild(oldMeter, true);
+                    }
+    
+                    /* open scorm in modal */
+                    if (["sahs", "htlm", "html", "file", "exc", "tst", "copa"].includes(newCard.dataset.type)) {
+                        for (const link of newCard.querySelectorAll('a')) {
+                            link.addEventListener('click', openLinkInModal);
+                        }
                     }
                 }
-            }
+            });
 
             const newHeadings = doc.querySelectorAll('.dci-accordion-heading');
             const oldHeadings = document.querySelectorAll('.dci-accordion-heading');

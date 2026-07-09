@@ -15,8 +15,8 @@ git clone https://github.com/kalamun/ILIAS-dci-skin.git dci
 Assign the skin to a non-admin user.
 
 ### Requirements
-* ILIAS >= 7.0
-* PHP >= 7.0
+* ILIAS >= 10.0
+* PHP >= 7.4
 
 ### Support
 * Bug reports and feature requests: open a ticket in https://github.com/kalamun/ilias-jitsi/issues

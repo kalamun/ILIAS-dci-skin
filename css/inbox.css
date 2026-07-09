@@ -1,45 +1,51 @@
-.is_inbox :is(.ilTableNav, .ilTableCommandRowTop) {
-    display: none;
-}
+.is_inbox {
+    :is(.ilTableNav, .ilTableCommandRowTop) {
+        display: none;
+    }
 
-.is_inbox .table-responsive {
-    margin-bottom: 1rem;
-}
-.is_inbox .ilTableSelectAll {
-    float: left;
-    margin-left: 0.5rem;
-    margin-right: 1rem;
-}
-.is_inbox .ilTableCommandRow,
-.is_inbox .ilTableCommandRow select {
-    font-size: var(--font-size-xsmall);
-}
-.is_inbox .ilTableCommandRow input {
-    padding: 0.4em 1em;
-}
+    .table-responsive {
+        margin-bottom: 1rem;
+    }
+    .ilTableSelectAll {
+        float: left;
+        margin-left: 0.5rem;
+        margin-right: 1rem;
+    }
+    .ilTableCommandRow {
+        &, select {
+            font-size: var(--font-size-xsmall);
+        }
+        input {
+            padding: 0.4em 1em;
+        }
+    }
 
-.is_inbox .ilToolbar.navbar.navbar-default {
-    display: none;
-}
+    .ilToolbar.navbar.navbar-default {
+        display: none;
+    }
 
-.is_inbox :is(#ilTab, #isSubTab) {
-    display: flex;
-}
+    :is(#ilTab, #isSubTab) {
+        display: flex;
+    }
 
-.is_inbox .ilHeaderDesc {
-    display: none;
-}
+    .ilHeaderDesc {
+        display: none;
+    }
 
-.is_inbox table th {
-    font-size: var(--font-size-xxsmall);
-    background: var(--color-xxlight-grey);
-    font-weight: normal;
-    padding: 0.2rem 0.5rem;
-}
-.is_inbox table th a {
-    color: var(--color-black);
-}
-.is_inbox table td {
-    border-top: 1px solid var(--color-xlight-grey);
-    padding: 0.2rem 0.5rem;
+    table {
+        th {
+            font-size: var(--font-size-xxsmall);
+            background: var(--color-xxlight-grey);
+            font-weight: normal;
+            padding: 0.2rem 0.5rem;
+
+            a {
+                color: var(--color-black);
+            }
+        }
+        td {
+            border-top: 1px solid var(--color-xlight-grey);
+            padding: 0.2rem 0.5rem;
+        }
+    }
 }

@@ -1,22 +1,25 @@
 /* panels */
-.panel .panel-heading.ilHeader {
-    display: flex;
-    justify-content: space-between;
-}
+.panel {
+    .panel-heading.ilHeader {
+        display: flex;
+        justify-content: space-between;
+    }
 
-.panel ul.dropdown-menu {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    /* temporary hidden */
-    height: 0;
-    overflow: hidden;
-}
-.panel ul.dropdown-menu li {
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    font-size: var(--font-size-small);
+    ul.dropdown-menu {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        /* temporary hidden */
+        height: 0;
+        overflow: hidden;
+
+        li {
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            font-size: var(--font-size-small);
+        }
+    }
 }
 
 /* tabs */
@@ -41,116 +44,128 @@
 }
 :is(#ilTab, #ilSubTab) li {
     margin: 0;
-}
-:is(#ilTab, #ilSubTab) li a {
-    display: block;
-    padding: 0.5rem 0;
-    margin: 0;
-}
-:is(#ilTab, #ilSubTab) li.active {
-    border-bottom: 2px solid var(--color-red);
+
+    a {
+        display: block;
+        padding: 0.5rem 0;
+        margin: 0;
+    }
+    &.active {
+        border-bottom: 2px solid var(--color-red);
+    }
 }
 
 /* accordion */
-.dci-accordion div.il_VAccordionContentDef {
-    display: grid;
-    grid-template-rows: 1fr;
-    transition: grid-template-rows 500ms;
-    height: auto !important;
+body .dci-accordion {
+    div.il_VAccordionContentDef {
+        display: grid;
+        grid-template-rows: 1fr;
+        transition: grid-template-rows 500ms;
+        height: auto !important;
+        overflow: hidden;
+
+        &.ilAccHideContent {
+            grid-template-rows: 0fr;
+        }
+        .ilc_va_icont_VAccordICont {
+            overflow: hidden;
+        }
+    }
+    div.ilc_va_icont_VAccordICont {
+        text-transform: none;
+        background-color: transparent;
+        padding: 0;
+    }
+    :is(div.dci-accordion-heading, div.ilc_va_iheada_VAccordIHeadActive) {
+        &, &:hover {
+            font-size: inherit;
+            padding: 0.5em 1em;
+            background: var(--il-VAccordIHead-background-color, var(--il-Accent-color, var(--color-blue)));
+            color: var(--il-VAccordIHead-color, var(--color-white));
+            text-transform: none;
+        }
+    }
+    .il_VAccordionToggleDef {
+        cursor: pointer;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 8px;
+    }
+    .dci-accordion-heading {
+        > div {
+            display: flex;
+            align-items: center;
+        }
+        h2 {
+            margin: 0 !important;
+            flex-grow: 2;
+        }
+        .accordion-toggle {
+            transition: transform 0.3s ease-in-out;
+            border-radius: 2em;
+            font-size: var(--font-size-xlarge);
+            line-height: 1;
+            height: 1.4em;
+            width: 1.4em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(0deg);
+        }
+        &.ilc_va_iheada_VAccordIHeadActive .accordion-toggle {
+            transform: rotate(180deg);
+        }
+    }
+    .accordion-progress {
+        padding: 0.3em 1em;
+        font-size: 1rem;
+        border-radius: 3em;
+
+        &.completed {
+            background: var(--color-green);
+            color: var(--color-white);
+            border: 3px solid;
+        }
+        [class^="icon-"] {
+            margin-right: 0.5em;
+
+            &:before {
+                transform: scale(1.4);
+            }
+        }
+    }
 }
-.dci-accordion-heading {
+body .dci-accordion-heading {
     background: var(--il-VAccordIHead-background-color, var(--il-Accent-color, var(--color-blue)));
     color: var(--il-VAccordIHead-color, var(--color-white));
     padding: 0.5em 1em;
-}
-.dci-accordion div.il_VAccordionContentDef.ilAccHideContent {
-    grid-template-rows: 0fr;
-}
-.dci-accordion div.il_VAccordionContentDef .ilc_va_icont_VAccordICont {
-    overflow: hidden;
-}
-.dci-accordion div.ilc_va_icont_VAccordICont {
-    text-transform: none;
-    background-color: transparent;
-    padding: 0;
-}
-.dci-accordion div.ilc_va_iheada_VAccordIHeadActive,
-.dci-accordion div.ilc_va_iheada_VAccordIHeadActive:hover {
-    font-size: inherit;
-    padding: 0.5em 1em;
-    background: var(--il-VAccordIHead-background-color, var(--il-Accent-color, var(--color-blue)));
-    color: var(--il-VAccordIHead-color, var(--color-white));
-    text-transform: none;
-}
-.dci-accordion .il_VAccordionToggleDef {
-    cursor: pointer;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 8px;
-}
-.dci-accordion .dci-accordion-heading > div {
-    display: flex;
-    align-items: center;
-}
-.dci-accordion .dci-accordion-heading h2 {
-    margin: 0 !important;
-    flex-grow: 2;
-}
-.dci-accordion .dci-accordion-heading .accordion-toggle {
-    transition: transform 0.3s ease-in-out;
-    border-radius: 2em;
-    font-size: var(--font-size-xlarge);
-    line-height: 1;
-    height: 1.4em;
-    width: 1.4em;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(0deg);
-}
-.dci-accordion .dci-accordion-heading.ilc_va_iheada_VAccordIHeadActive .accordion-toggle {
-    transform: rotate(180deg);
-}
-.dci-accordion .accordion-progress {
-    padding: 0.3em 1em;
-    font-size: 1rem;
-    border-radius: 3em;
-}
-.dci-accordion .accordion-progress.completed {
-    background: var(--color-green);
-    color: var(--color-white);
-    border: 3px solid;
-}
-.dci-accordion .accordion-progress [class^="icon-"] {
-    margin-right: 0.5em;
-}
-.dci-accordion .accordion-progress [class^="icon-"]:before {
-    transform: scale(1.4);
 }
 
 /* native ilias accordion */
-:not(.dci-accordion) .il_VAccordionInnerContainer {
-    margin-bottom: 10px;
-}
-:not(.dci-accordion) div.il_VAccordionToggleDef {
-    display: block;
-}
-:not(.dci-accordion) div.il_VAccordionContentDef {
-    overflow: visible;
-}
-:not(.dci-accordion) div.il_VAccordionContentDef.ilAccHideContent {
-    overflow: hidden;
-}
-:not(.dci-accordion) .il_VAccordionHead {
-    display: block;
-    width: 100%;
-  }
-:not(.dci-accordion) .il_VAccordionHead,
-:not(.dci-accordion) .il_HAccordionHead {
-    padding: 0.5em 1em;
-    background-color: var(--color-blue);
-    font-size: var(--font-size-xlarge);
-    text-align: left;
-    cursor: pointer;
+:not(.dci-accordion) {
+    .il_VAccordionInnerContainer {
+        margin-bottom: 10px;
+    }
+    div.il_VAccordionToggleDef {
+        display: block;
+    }
+    div.il_VAccordionContentDef {
+        overflow: visible;
+
+        &.ilAccHideContent {
+            overflow: hidden;
+        }
+    }
+    .il_VAccordionHead {
+        display: block;
+        width: 100%;
+    }
+    :is(.il_VAccordionHead, .il_HAccordionHead) {
+        padding: 0.5em 1em;
+        background-color: var(--color-blue);
+        font-size: var(--font-size-xlarge);
+        text-align: left;
+        cursor: pointer;
+    }
 }
 
 
@@ -170,13 +185,15 @@ body :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Back
     padding-inline: 20px !important;
     margin: 10px;
 }
-body .flex-col :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background) {
-    width: 100%;
-    margin: 0 !important;
-}
-body .flex-col :where(div.ilc_section_hastag, a.ilc_section_hastag) {
-    height: 100%;
-    width: 100%;
+body .flex-col {
+    :where(div.ilc_section_Special, a.ilc_section_Special, div.ilc_section_Background, a.ilc_section_Background) {
+        width: 100%;
+        margin: 0 !important;
+    }
+    :where(div.ilc_section_hastag, a.ilc_section_hastag) {
+        height: 100%;
+        width: 100%;
+    }
 }
 body :where(div.ilc_section_Background, a.ilc_section_Background) {
     background: var(--color-light-grey) !important;
@@ -193,26 +210,29 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
 }
 
 /* dropdowns */
-.dropdown, .btn-group {
+:is(.dropdown, .btn-group) {
     position: relative;
-}
-:is(.dropdown, .btn-group) > .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 100%;
-    background: var(--color-white);
-    list-style: none;
-    padding: 0.5em;
-    margin: 0;
-    box-shadow: var(--box-shadow);
-    display: none;
-}
-:is(.dropdown, .btn-group):hover {
-    z-index: 1000;
-}
-:is(.dropdown, .btn-group):hover > .dropdown-menu {
-    display: block;
+
+    > .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 100%;
+        background: var(--color-white);
+        list-style: none;
+        padding: 0.5em;
+        margin: 0;
+        box-shadow: var(--box-shadow);
+        display: none;
+    }
+
+    &:hover {
+        z-index: 1000;
+
+        > .dropdown-menu {
+            display: block;
+        }
+    }
 }
 
 
@@ -244,31 +264,35 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
 #tst_output {
     display: flex;
 }
-#tst_left:not(:empty) {
-    border-right: 1px solid var(--color-xlight-grey);
-    margin-right: 50px;
-    padding-right: 50px;
-    font-size: 0.8em;
-    line-height: 1;
-}
-#tst_left h2 {
-    font-size: var(--font-size-normal) !important;
-    margin-top: 5rem !important;
-}
-#tst_left ul {
-    list-style: none;
+#tst_left {
+    &:not(:empty) {
+        border-right: 1px solid var(--color-xlight-grey);
+        margin-right: 50px;
+        padding-right: 50px;
+        font-size: 0.8em;
+        line-height: 1;
+    }
+    h2 {
+        font-size: var(--font-size-normal) !important;
+        margin-top: 5rem !important;
+    }
+    ul {
+        list-style: none;
+    }
 }
 #tst_right {
     flex-grow: 2;
-}
-#tst_right .ilToolbar {
-    float: right;
-    margin-left: 1rem;
-    position: relative;
-    z-index: 100;
-}
-#tst_right .ilToolbar .ilToolbarStickyItems li {
-    margin: 0;
+
+    .ilToolbar {
+        float: right;
+        margin-left: 1rem;
+        position: relative;
+        z-index: 100;
+
+        .ilToolbarStickyItems li {
+            margin: 0;
+        }
+    }
 }
 .ilAdminRow {
     background: var(--color-white);
@@ -299,41 +323,46 @@ body #il_center_col > :is(h1, h2, h3, h4, h5, h6) {
     padding: 20px;
     border: 1px solid var(--color-grey);
     border-top: 0;
-}
-.ilExcAssignmentBody h2 {
-    margin-top: 0.8em !important;
+
+    h2 {
+        margin-top: 0.8em !important;
+    }
 }
 
 
 nav.ilToolbar {
     position: relative;
-}
-nav.ilToolbar .navbar-collapse {
-    display: none;
-    position: absolute;
-    right: 0;
-    min-width: 200px;
-    top: 100%;
-    z-index: 100;
-    box-shadow: var(--box-shadow);
-}
-nav.ilToolbar .navbar-collapse.in {
-    display: block;
-}
-nav.ilToolbar .navbar-collapse li {
-    margin: 0;
-}
-nav.ilToolbar .navbar-collapse li a {
-    text-transform: none;
-    background: var(--color-white);
-    color: var(--color-black) !important;
-    line-height: 1.2;
-    margin: 0;
-    padding: 0.5em;
-    border-bottom: 1px solid var(--color-light-grey);
-    width: 100%;
-}
-nav.ilToolbar .navbar-collapse li a:hover {
-    color: var(--color-red) !important;
-    background: var(--color-white) !important;
+
+    .navbar-collapse {
+        display: none;
+        position: absolute;
+        right: 0;
+        min-width: 200px;
+        top: 100%;
+        z-index: 100;
+        box-shadow: var(--box-shadow);
+
+        &.in {
+            display: block;
+        }
+        li {
+            margin: 0;
+
+            a {
+                text-transform: none;
+                background: var(--color-white);
+                color: var(--color-black) !important;
+                line-height: 1.2;
+                margin: 0;
+                padding: 0.5em;
+                border-bottom: 1px solid var(--color-light-grey);
+                width: 100%;
+
+                &:hover {
+                    color: var(--color-red) !important;
+                    background: var(--color-white) !important;
+                }
+            }
+        }
+    }
 }

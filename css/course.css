@@ -13,44 +13,56 @@ body:not(.is_inbox) #mainscrolldiv > ul#ilTab {
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 20px 100px 20px;
-}
-#ilContentContainer.dci-course-page {
-    font-size: var(--font-size-small);
-    line-height: var(--font-size-xlarge);
+
+    &.dci-course-page {
+        font-size: var(--font-size-small);
+        line-height: var(--font-size-xlarge);
+    }
+
+    .dci-course-title h1 {
+        font-size: var(--font-size-xxlarge) !important;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: bold;
+    }
+
+    .row {
+        h1 {
+            font-size: var(--font-size-xxlarge) !important;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            font-weight: bold;
+            position: relative;
+            padding: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+        h2 {
+            margin-top: 2em;
+        }
+    }
+
+    .ilContainerBlock {
+        display: none;
+    }
 }
 
-body.is_course #ilContentContainer .dci-course-cover {
-    width: 100%;
-    min-height: 150px;
-    margin-bottom: 50px;
-}
-body.is_course #ilContentContainer .dci-course-cover figure {
-    margin: 0;
-}
-body.is_course #ilContentContainer .dci-course-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    display: none;
-}
-#ilContentContainer .dci-course-title h1 {
-    font-size: var(--font-size-xxlarge) !important;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-weight: bold;
-}
-#ilContentContainer .row h1 {
-    font-size: var(--font-size-xxlarge) !important;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    font-weight: bold;
-    position: relative;
-}
-#ilContentContainer .row h2 {
-    margin-top: 2em;
-}
-#ilContentContainer .ilContainerBlock {
-    display: none;
+body.is_course #ilContentContainer {
+    .dci-course-cover {
+        width: 100%;
+        min-height: 150px;
+        margin-bottom: 50px;
+
+        figure {
+            margin: 0;
+        }
+    }
+    .dci-course-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        display: none;
+    }
 }
 
 .il-copg-mob-fullscreen-modal {
@@ -69,14 +81,32 @@ body.is_course #ilContentContainer .dci-course-title {
     height: 1em;
     position: relative;
     font-size: var(--font-size-xxsmall);
-}
-.dci-meter .dci-meter-value {
-    font-weight: normal;
-    position: absolute;
-    bottom: 100%;
-    transform: translateX(-50%);
-    padding: 0 0.2em;
-    color: var(--color-black);
+
+    .dci-meter-value {
+        font-weight: normal;
+        position: absolute;
+        bottom: 100%;
+        transform: translateX(-50%);
+        padding: 0 0.2em;
+        color: var(--color-black);
+    }
+
+    &:is([data-progress-range="00"], [data-progress-range="10"]) .dci-meter-value {
+        transform: translateX(1.2em);
+    }
+    &[data-progress-range="100"] .dci-meter-value {
+        transform: translateX(-100%);
+    }
+
+    &.progress-red .dci-meter-progress {
+        background: var(--color-red);
+    }
+    &.progress-yellow .dci-meter-progress {
+        background: var(--color-yellow);
+    }
+    &.progress-green .dci-meter-progress {
+        background: var(--color-green);
+    }
 }
 .kalamun-training-dashboard_course .dci-meter {
     background: var(--color-light-grey);
@@ -97,31 +127,9 @@ body.is_course #ilContentContainer .dci-course-title {
     top: 0;
     left: 0;
 }
-.dci-meter.progress-red .dci-meter-progress {
-    background: var(--color-red);
-}
-.dci-meter.progress-yellow .dci-meter-progress {
-    background: var(--color-yellow);
-}
-.dci-meter.progress-green .dci-meter-progress {
-    background: var(--color-green);
-}
-.dci-meter:is([data-progress-range="00"], [data-progress-range="10"]) .dci-meter-value {
-    transform: translateX(1.2em);
-}
-.dci-meter[data-progress-range="100"] .dci-meter-value {
-    transform: translateX(-100%);
-}
 
 
 /* cleanup eDami */
-#ilContentContainer .row h1 {
-    position: relative;
-    padding: 0;
-    border-left: 0;
-    border-right: 0;
-}
-
 .dci-card-preview .dci-card-progress.completed::after {
     content: 'COMPLETED';
 }

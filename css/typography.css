@@ -157,8 +157,10 @@
 .icon-trash:before { content: '\f1f8'; } /* '' */
 .icon-question:before { content: '\f29c'; } /* '' */
 
-.glyphicon.glyphicon-plus:before { content: '\e819'; }
-.glyphicon.glyphicon-minus:before { content: '\e809'; }
+.glyphicon {
+	&.glyphicon-plus:before { content: '\e819'; }
+	&.glyphicon-minus:before { content: '\e809'; }
+}
 
 
 html, body, input, select, textarea, button {
@@ -221,8 +223,9 @@ small {
 a[href] {
 	color: var(--color-red);
 	text-decoration: none !important;
-}
-a[href]:hover {
-	color: var(--color-red);
-	text-decoration: underline !important;
+
+	&:hover {
+		color: var(--color-red);
+		text-decoration: underline !important;
+	}
 }
