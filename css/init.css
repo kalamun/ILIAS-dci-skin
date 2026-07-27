@@ -121,7 +121,7 @@ textarea {
 	width: 100%;
 }
 
-label, input, select, button {
+label, select, button {
 	cursor: pointer;
 }
 

@@ -832,10 +832,12 @@ body.is_login {
 }
 .ilLogin_form {
     > div {
-        background: #fff3;
+        padding: 2em;
+        margin: 0.2rem;
+        background: #0008;
         color: var(--color-white);
         box-shadow: var(--box-shadow);
-        min-width: 30rem;
+        width: 25rem;
         backdrop-filter: blur(0.3rem);
     }
     .ilFormHeader {
@@ -865,6 +867,79 @@ div.ilStartupSection {
         .ilFormHeader {
             background: transparent;
         }
+    }
+
+    .c-form__header {
+        display: none;
+    }
+
+    h2 {
+        margin: 0 !important;
+    }
+    
+    .asterisk, .c-form__required {
+        display: none;
+    }
+
+    ul.ilStartupSectionRegistrationLinks {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 1em;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        li {
+            margin: 0;
+        }
+    }
+
+    .c-form__footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1em 0;
+    }
+
+    .c-input__field {
+        position: relative;
+
+        fieldset {
+            margin: 0.5em 0;
+        }
+    }
+
+    .c-field-password__revelation-glyph {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.3em;
+        padding: 0.3em;
+
+        a {
+            color: var(--color-dark-grey);
+            
+            &:hover {
+                color: var(--color-black);
+            }
+        }
+
+        &.c-field-password__revelation-glyph--mask {
+            display: none;
+        }
+    }
+
+    .c-field-password.revealed {
+    .c-field-password__revelation-glyph {
+        &.c-field-password__revelation-glyph--reveal {
+            display: none;
+        }
+        &.c-field-password__revelation-glyph--mask {
+            display: block;
+        }
+    }
     }
 
     form[name="formlogin"] {
