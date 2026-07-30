@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
   refactorCoursePage();
   initLayout();
   initLoginPage();
+  initLegalDocumentsPage();
 }, { once: true });
 
 function initLayout() {
@@ -40,6 +41,20 @@ function initLoginPage() {
   });
 
   return false;
+}
+
+function initLegalDocumentsPage() {
+  if (document.body.classList.contains('is_legal_doc')) {
+    document.querySelectorAll('form .c-field-radio__item').forEach((elm) => {
+      elm.addEventListener('click', (e) => {
+        const inputField = elm.querySelector('input');
+        if (inputField) {
+          inputField.checked = true;
+          inputField.form.submit();
+        }
+      });
+    });
+  }
 }
 
 function initMenu() {
@@ -114,7 +129,7 @@ function refactorCoursePage() {
   const rowWrapper = ilContentContainer.querySelector('body.is_course .row');
   if (rowWrapper) {
     const cover = ilContentContainer.querySelector(
-      '#il_center_col .dci-cover:first-of-type',
+      '.xtb-banner',
     );
     if (cover) {
       const coverWrapper = document.querySelector('.dci-course-cover')
