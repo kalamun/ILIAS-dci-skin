@@ -373,8 +373,8 @@ nav.ilToolbar {
 
 /* tables */
 
-td.ilc_table_cell_StandardHeader, th.ilc_table_cell_StandardHeader {
-    border-color: color-mix(in srgb, var(--il-VAccordIHead-background-color, var(--il-Accent-color, var(--color-dark-grey))), 50%, transparent);
+body :is(td.ilc_table_cell_StandardHeader, th.ilc_table_cell_StandardHeader) {
+    border-color: color-mix(in srgb, var(--il-VAccordIHead-background-color, var(--il-Accent-color, var(--color-dark-grey))), 50%, white);
     background-color: var(--il-VAccordIHead-background-color, var(--il-Accent-color, var(--color-dark-grey)));
 }
 
