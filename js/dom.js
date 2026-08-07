@@ -177,15 +177,15 @@ function refactorCoursePage() {
       }
     }
 
+    /* open external links in popup */
+    rowWrapper.querySelectorAll('a.ilc_link_ExtLink').forEach((link) => {
+      link.addEventListener('click', openLinkInPopup);
+    });
+
     /* open scorm in modal */
     rowWrapper.querySelectorAll(
       '.kalamun-card:where([data-type=sahs], [data-type=htlm], [data-type=html], [data-type=file], [data-type=exc], [data-type=tst], [data-type=copa]) a',
     ).forEach((link) => {
-      link.addEventListener('click', openLinkInModal);
-    });
-
-    /* open external links in modals */
-    rowWrapper.querySelectorAll('a.ilc_link_ExtLink').forEach((link) => {
       link.addEventListener('click', openLinkInModal);
     });
 
@@ -334,6 +334,20 @@ function reloadCard(card) {
     });
 
   return true;
+}
+
+function openLinkInPopup(e) {
+  e.preventDefault();
+  e.stopImmediatePropagation();
+
+  const link = e.currentTarget || e.target;
+  if (!link) return;
+
+  const popupWidth = Math.min(1200, window.screen.width);
+  const popupHeight = Math.min(700, window.screen.height);
+  const popupLeft = (window.screen.width - popupWidth) / 2;
+  const popupTop = (window.screen.height - popupHeight) / 2;
+  window.open(link, 'iliasLinkPopUpWindow', `height=${popupHeight}, width=${popupWidth}, left=${popupLeft}, top=${popupTop}, resizable=yes, scrollbars=yes, toolbar=yes`);
 }
 
 function openLinkInModal(e) {
