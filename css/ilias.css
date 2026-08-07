@@ -57,7 +57,7 @@
 
 /* accordion */
 body .dci-accordion {
-    div.il_VAccordionContentDef {
+    div:is(.il_AccordionContentDef, .il_VAccordionContentDef) {
         display: grid;
         grid-template-rows: 1fr;
         transition: grid-template-rows 500ms;
@@ -67,14 +67,15 @@ body .dci-accordion {
         &.ilAccHideContent {
             grid-template-rows: 0fr;
         }
-        .ilc_va_icont_VAccordICont {
+        :is(.ilc_va_icont_AccordICont, .ilc_va_icont_VAccordICont) {
             overflow: hidden;
         }
     }
-    div.ilc_va_icont_VAccordICont {
+    div:is(.ilc_va_icont_AccordICont, .ilc_va_icont_VAccordICont) {
         text-transform: none;
         background-color: transparent;
         padding: 0;
+        border: 0;
     }
     :is(div.dci-accordion-heading, div.ilc_va_iheada_VAccordIHeadActive) {
         &, &:hover {
@@ -91,6 +92,8 @@ body .dci-accordion {
         padding-bottom: 8px;
     }
     .dci-accordion-heading {
+        border: 0;
+        
         > div {
             display: flex;
             align-items: center;
@@ -111,7 +114,7 @@ body .dci-accordion {
             justify-content: center;
             transform: rotate(0deg);
         }
-        &.ilc_va_iheada_VAccordIHeadActive .accordion-toggle {
+        &:is(.ilc_va_iheada_AccordIHeadActive, .ilc_va_iheada_VAccordIHeadActive) .accordion-toggle {
             transform: rotate(180deg);
         }
     }
@@ -142,20 +145,20 @@ body .dci-accordion-heading {
 
 /* native ilias accordion */
 :not(.dci-accordion) {
-    .il_VAccordionInnerContainer {
+    :is(.il_AccordionInnerContainer, .il_VAccordionInnerContainer) {
         margin-bottom: 10px;
     }
-    div.il_VAccordionToggleDef {
+    div:is(.il_AccordionToggleDef, .il_VAccordionToggleDef) {
         display: block;
     }
-    div.il_VAccordionContentDef {
+    div:is(.il_AccordionContentDef, .il_VAccordionContentDef) {
         overflow: visible;
 
         &.ilAccHideContent {
             overflow: hidden;
         }
     }
-    .il_VAccordionHead {
+    :is(.il_AccordionHead, .il_VAccordionHead) {
         display: block;
         width: 100%;
     }
