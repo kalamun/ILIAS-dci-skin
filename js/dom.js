@@ -58,11 +58,11 @@ function initLegalDocumentsPage() {
 }
 
 function initMenu() {
-  for (const element of document.querySelectorAll(
+  document.querySelectorAll(
     '.il-mainbar .dci-mainbar-li-submenu a.il-link.link-bulky',
-  )) {
+  ).forEach((element) => {
     element.parentNode.removeChild(element);
-  }
+  });
   document
     .querySelector('.metabar .dci-mainbar-li.search button')
     ?.addEventListener('click', openSearch);
@@ -89,9 +89,9 @@ function closeSearch() {
 }
 
 function initDashboard() {
-  for (const element of document.querySelectorAll(
+  document.querySelectorAll(
     '.kalamun-training-dashboard_course',
-  )) {
+  ).forEach((element) => {
     const { permalink } = element.dataset;
     if (permalink) {
       element.addEventListener('click', (e) => {
@@ -99,7 +99,7 @@ function initDashboard() {
         window.location.href = permalink;
       });
     }
-  }
+  });
 }
 
 function initSideBar() {
@@ -166,30 +166,35 @@ function refactorCoursePage() {
         '.dci-accordion-heading h2, #il_center_col > h2, .ilc_va_cntr_VAccordCntr h2',
       );
       if (headings.length) {
-        for (const [index, heading] of headings.entries()) {
+        headings.forEach((heading, index) => {
           const internalMenuLi = document.createElement('li');
           internalMenuLi.innerHTML = heading.textContent.trim();
           internalMenuLi.addEventListener('click', () => scrollToElement(heading));
           internalMenuUl.appendChild(internalMenuLi);
           heading.dataset.index = index;
           observer.observe(heading);
-        }
+        });
       }
     }
 
     /* open scorm in modal */
-    for (const link of rowWrapper.querySelectorAll(
+    rowWrapper.querySelectorAll(
       '.kalamun-card:where([data-type=sahs], [data-type=htlm], [data-type=html], [data-type=file], [data-type=exc], [data-type=tst], [data-type=copa]) a',
-    )) {
+    ).forEach((link) => {
       link.addEventListener('click', openLinkInModal);
-    }
+    });
+
+    /* open external links in modals */
+    rowWrapper.querySelectorAll('a.ilc_link_ExtLink').forEach((link) => {
+      link.addEventListener('click', openLinkInModal);
+    });
 
     /* open medias linked to images in modal */
-    for (const link of rowWrapper.querySelectorAll(
+    rowWrapper.querySelectorAll(
       '.ilc_Mob a[href*="cmd=displayMedia"], a.ilCOPageSection[target="_blank"]',
-    )) {
+    ).forEach((link) => {
       link.addEventListener('click', openLinkInModal);
-    }
+    });
 
     /* transform interactive images to modals */
     document.querySelectorAll('.ilc_iim_ContentPopup').forEach((popup) => {
@@ -204,11 +209,11 @@ function refactorCoursePage() {
     });
   }
 
-  for (const oldMeter of document.querySelectorAll('meter')) {
+  document.querySelectorAll('meter').forEach((oldMeter) => {
     const meter = createMeter(Number(oldMeter.getAttribute('value')));
     oldMeter.parentNode.insertBefore(meter, oldMeter);
     oldMeter.parentNode.removeChild(oldMeter, true);
-  }
+  });
 
   return true;
 }
@@ -235,12 +240,14 @@ function toggleSideBar() {
 function createMeter(progress) {
   const normalizedProgress = Math.round(Math.min(progress, 100));
   const wrapper = document.createElement('div');
-  wrapper.className = `dci-meter progress-${
-    normalizedProgress < 50
-      ? 'red'
-      : normalizedProgress < 100
-        ? 'yellow'
-        : 'green'}`;
+
+  let progressColor = 'green';
+  if (normalizedProgress < 50) {
+    progressColor = 'red';
+  } else if (normalizedProgress < 100) {
+    progressColor = 'yellow';
+  }
+  wrapper.className = `dci-meter progress-${progressColor}`;
   wrapper.dataset.progress = normalizedProgress;
   wrapper.dataset.progressRange = `${Math.ceil(normalizedProgress / 10)}0`;
   wrapper.innerHTML = `<span class="dci-meter-value" style="left:${normalizedProgress}%">${normalizedProgress}%</span><div class="dci-meter-progress" style="width:${normalizedProgress}%"></div>`;
@@ -249,9 +256,9 @@ function createMeter(progress) {
 }
 
 function closeModal() {
-  for (const modal of document.querySelectorAll('.dci-modal')) {
+  document.querySelectorAll('.dci-modal').forEach((modal) => {
     modal.parentNode.removeChild(modal);
-  }
+  });
 }
 
 function reloadCard(card) {
@@ -269,11 +276,11 @@ function reloadCard(card) {
           originalCard.parentNode.insertBefore(newCard, originalCard);
           originalCard.parentNode.removeChild(originalCard);
 
-          for (const oldMeter of newCard.querySelectorAll('meter')) {
+          newCard.querySelectorAll('meter').forEach((oldMeter) => {
             const meter = createMeter(Number(oldMeter.getAttribute('value')));
             oldMeter.parentNode.insertBefore(meter, oldMeter);
             oldMeter.parentNode.removeChild(oldMeter, true);
-          }
+          });
 
           /* open scorm in modal */
           if (
@@ -281,9 +288,9 @@ function reloadCard(card) {
               newCard.dataset.type,
             )
           ) {
-            for (const link of newCard.querySelectorAll('a')) {
+            newCard.querySelectorAll('a').forEach((link) => {
               link.addEventListener('click', openLinkInModal);
-            }
+            });
           }
         }
       });
@@ -304,13 +311,11 @@ function reloadCard(card) {
         if (newMenuCourseProgress[i]) {
           progress.parentNode.insertBefore(newMenuCourseProgress[i], progress);
           progress.parentNode.removeChild(progress);
-          for (const oldMeter of newMenuCourseProgress[i].querySelectorAll(
-            'meter',
-          )) {
+          newMenuCourseProgress[i].querySelectorAll('meter').forEach((oldMeter) => {
             const meter = createMeter(Number(oldMeter.getAttribute('value')));
             oldMeter.parentNode.insertBefore(meter, oldMeter);
             oldMeter.parentNode.removeChild(oldMeter, true);
-          }
+          });
         }
       });
 
