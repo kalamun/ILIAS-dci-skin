@@ -846,6 +846,11 @@ body.is_login {
     box-shadow: var(--box-shadow);
     width: 25rem;
     backdrop-filter: blur(0.3rem);
+    border-radius: 1rem;
+
+    &:not(:has(*)) {
+      display: none;
+    }
   }
   .ilFormHeader {
     padding: 0 !important;
@@ -861,6 +866,10 @@ body.is_login {
     .ilFormCmds {
       text-align: right;
     }
+  }
+  h2 {
+    text-align: center;
+    display: none;
   }
 }
 div.ilStartupSection {
@@ -882,6 +891,10 @@ div.ilStartupSection {
 
   h2 {
     margin: 0 !important;
+  }
+
+  a {
+    color: var(--color-white);
   }
 
   .asterisk,
@@ -909,6 +922,7 @@ div.ilStartupSection {
     align-items: center;
     justify-content: center;
     margin: 1em 0;
+    font-size: 1.2em;
   }
 
   .c-input__field {
