@@ -758,10 +758,12 @@ body.is_login {
   div.ilAdminRow {
     position: absolute;
     z-index: 10;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 1rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
     text-align: center;
+    font-size: 1rem;
+    border-radius: 0.5rem;
   }
 }
 .is_login {
