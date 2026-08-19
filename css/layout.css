@@ -377,6 +377,10 @@ main > footer {
     display: none;
   }
 }
+footer .il-footer-links button {
+  color: var(--color-red);
+  font-size: var(--font-size-xxxsmall);
+}
 
 /* columns */
 .row-flex {
@@ -1076,6 +1080,45 @@ div:is(.ilLogin_form, .ilStartupSection)
     display: none;
   }
 }
+
+/* CGU */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 5rem !important;
+    background: var(--color-white);
+    height: calc(100svh - 5rem);
+    overflow: auto;
+    width: 100%;
+    color: var(--color-black);
+    font-size: var(--font-size-small);
+
+    h1 {
+        font-size: var(--font-size-xlarge) !important;
+    }
+
+    .modal-header {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}
+
+
+/* Ilias Grid System */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.il-card.thumbnail {
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+}
+
 
 @media (max-width: 768px) {
   .ilLogin_wrapper {
