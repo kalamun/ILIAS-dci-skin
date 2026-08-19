@@ -831,6 +831,18 @@ div:is(.ilLogin_form, .ilStartupSection) input:is([type="text"], [type="password
 }
 
 
+/* Ilias Grid System */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.il-card.thumbnail {
+  box-shadow: var(--box-shadow);
+  padding: 1rem;
+}
+
 
 @media (max-width: 768px) {
     .ilLogin_wrapper {

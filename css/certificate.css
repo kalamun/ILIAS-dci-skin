@@ -1,0 +1,41 @@
+.is_certificate {
+  .dci-course-title {
+    display: block !important;
+  }
+
+  .il-viewcontrol-sortation {
+    display: none;
+  }
+
+  .il-deck {
+    margin: 1rem 0;
+
+    .il-card-image-container {
+      width: 2rem;
+    }
+
+    .card-title {
+      font-weight: bold;
+      font-size: var(--font-size-large);
+      margin-bottom: 0.5rem;
+    }
+
+    .caption dl {
+      display: flex;
+      gap: 0.5em;
+    }
+
+    /* download button */
+    .caption:last-child {
+      margin-top: 0.5rem;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.ilContentFixed {
+  width: 100%;
+}
