@@ -1,4 +1,15 @@
 .is_certificate {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .il-card.thumbnail {
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+  }
+
   .dci-course-title {
     display: block !important;
   }
