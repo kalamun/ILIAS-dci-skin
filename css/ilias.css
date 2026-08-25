@@ -497,3 +497,19 @@ body :is(td.ilc_table_cell_StandardHeader, th.ilc_table_cell_StandardHeader) {
   }
 }
 
+
+/* map */
+
+.map {
+  button {
+    background: #0005;
+    padding: 0.2em;
+    min-width: 1.8em;
+    border-radius: 2em;
+  }
+  .ol-control {
+    float: right;
+    margin-right: 0.2em;
+  }
+}
+
