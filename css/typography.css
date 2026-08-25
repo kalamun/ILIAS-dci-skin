@@ -34,7 +34,7 @@
   font-style: normal;
 }
 
-[class^="icon-"]:before, [class*=" icon-"]:before, .glyphicon:before {
+[class^="icon-"]:before, [class*=" icon-"]:before, .glyphicon:before, .caret:before {
   font-family: "dci-icons";
   font-style: normal;
   font-weight: normal;
@@ -52,6 +52,7 @@
 
 .icon-settings:before { content: '\2193'; } /* '↓' */
 .icon-arrow-down:before { content: '\e800'; } /* '' */
+.caret:before { content: '\e800'; } /* '' */
 .icon-down-big:before { content: '\e801'; } /* '' */
 .icon-left:before { content: '\e802'; } /* '' */
 .icon-right-big:before { content: '\e803'; } /* '' */
