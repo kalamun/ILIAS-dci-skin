@@ -5,19 +5,44 @@
     justify-content: space-between;
   }
 
+  .dropdown-toggle + ul.dropdown-menu {
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .dropdown-toggle[aria-expanded="true"] + ul.dropdown-menu {
+    visibility: visible;
+    pointer-events: all;
+  }
+  
   ul.dropdown-menu {
     padding: 0;
     margin: 0;
     list-style: none;
-    /* temporary hidden */
-    height: 0;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column !important;
+    gap: 0 !important;
+    z-index: 10000;
 
     li {
       padding: 0;
       margin: 0;
       text-align: left;
       font-size: var(--font-size-small);
+
+      button {
+        background: transparent !important;
+        border-radius: 0 !important;
+        color: var(--color-black) !important;
+        padding: 0.2em 0.5em !important;
+        margin: 0 !important;
+        width: 100% !important;
+        text-align: left !important;
+        white-space: nowrap;
+
+        &:hover {
+          color: var(--color-red) !important;
+        }
+      }
     }
   }
 }
@@ -395,7 +420,7 @@ body :is(td.ilc_table_cell_StandardHeader, th.ilc_table_cell_StandardHeader) {
     padding: 2em;
 
     h2 {
-      margin: 0 0 0.6em;
+      margin: 0 0 0.6em !important;
     }
 
     .alert-info {
@@ -428,31 +453,44 @@ body :is(td.ilc_table_cell_StandardHeader, th.ilc_table_cell_StandardHeader) {
           box-shadow: var(--box-shadow);
           padding: 1rem;
   
-          .media-left img {
-            height: 2rem;
-          }
-  
-          .media-body {
-            .row {
-              font-size: var(--font-size-xxsmall);
+          .media {
+            position: relative;
 
-              & > div {
-                display: flex;
-                align-items: center;
-                gap: 0.5em;
+            .media-left img {
+              height: 2rem;
+            }
     
-                .il-item-property-name {
-                  font-weight: bold;
+            .media-body {
+              .row {
+                font-size: var(--font-size-xxsmall);
+  
+                & > div {
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5em;
+      
+                  .il-item-property-name {
+                    font-weight: bold;
+                  }
+      
+                  /* progress icon */
+                  .il-item-property-value img {
+                    width: 3em;
+                  }
                 }
-    
-                /* progress icon */
-                .il-item-property-value img {
-                  width: 3em;
+              }
+
+              .il-item-actions {
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                button {
+                  padding: 0.4em 1em;
                 }
               }
             }
           }
-  
         }
       }
     }
