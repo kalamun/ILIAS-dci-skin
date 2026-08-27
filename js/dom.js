@@ -184,7 +184,7 @@ function refactorCoursePage() {
 
     /* open scorm in modal */
     rowWrapper.querySelectorAll(
-      '.kalamun-card:where([data-type=sahs], [data-type=htlm], [data-type=html], [data-type=file], [data-type=exc], [data-type=tst], [data-type=copa]) a',
+      '.kalamun-card:where([data-type=sahs], [data-type=htlm], [data-type=html], [data-type=file], [data-type=exc], [data-type=tst], [data-type=copa], [data-type=svy]) a',
     ).forEach((link) => {
       link.addEventListener('click', openLinkInModal);
     });
