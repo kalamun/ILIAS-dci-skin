@@ -284,7 +284,7 @@ function reloadCard(card) {
 
           /* open scorm in modal */
           if (
-            ['sahs', 'htlm', 'html', 'file', 'exc', 'tst', 'copa'].includes(
+            ['sahs', 'htlm', 'html', 'file', 'exc', 'tst', 'copa', 'svy'].includes(
               newCard.dataset.type,
             )
           ) {
