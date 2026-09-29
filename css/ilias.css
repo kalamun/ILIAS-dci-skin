@@ -87,13 +87,14 @@ body .dci-accordion {
     grid-template-rows: 1fr;
     transition: grid-template-rows 500ms;
     height: auto !important;
-    overflow: hidden;
-
+    
     &.ilAccHideContent {
       grid-template-rows: 0fr;
-    }
-    :is(.ilc_va_icont_AccordICont, .ilc_va_icont_VAccordICont) {
       overflow: hidden;
+      
+      :is(.ilc_va_icont_AccordICont, .ilc_va_icont_VAccordICont) {
+        overflow: hidden;
+      }
     }
   }
   div:is(.ilc_va_icont_AccordICont, .ilc_va_icont_VAccordICont) {
