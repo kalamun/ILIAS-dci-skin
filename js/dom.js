@@ -196,14 +196,11 @@ function refactorCoursePage() {
       link.addEventListener('click', openLinkInModal);
     });
 
-    /* transform interactive images to modals */
-    document.querySelectorAll('.ilc_iim_ContentPopup').forEach((popup) => {
-      popup.style = '';
-      const areaId = popup.id?.replace('iim_popup_', '').replace(/_1$/, '');
-      const area = document.querySelector(`area#marea_${areaId}`);
-      document.body.appendChild(popup);
-
-      if (area) {
+    /* open interactive image link areas (URL triggers) in a modal;
+       popup triggers are left untouched and render as native inline popups */
+    rowWrapper.querySelectorAll('map.iim area[href]').forEach((area) => {
+      const href = area.getAttribute('href');
+      if (href && href !== '#') {
         area.addEventListener('click', openLinkInModal);
       }
     });
@@ -392,36 +389,10 @@ function openLinkInModal(e) {
   const modalBody = document.createElement('DIV');
   modalBody.className = 'dci-modal_body';
 
-  let isVideo = false;
-  let modalBodyContent = false;
+  const isVideo = !!link.href.match(/\.mp4$/) || link.href.includes('cmd=displayMedia');
 
-  if (link.id?.startsWith('marea_')) {
-    /* interactive image popup */
-    isVideo = true;
-
-    const popupId = `iim_popup_${link.id?.replace('marea_', '')}_1`;
-    const popup = document.querySelector(`#${popupId}`);
-    const modalBodyContentInner = popup?.querySelector('div')?.cloneNode(true);
-    modalBodyContent = document.createElement('div');
-    modalBodyContent.className = 'dci-modal_body-inner';
-    if (modalBodyContentInner) modalBodyContent.appendChild(modalBodyContentInner);
-    modalBodyContent.querySelectorAll('.ilc_Mob').forEach((ilcMob) => {
-      const video = ilcMob.querySelector('video')?.cloneNode(true);
-      if (video) {
-        video.removeAttribute('height');
-        video.setAttribute('controls', 'true');
-        video.setAttribute('autoplay', 'true');
-        ilcMob.innerHTML = '';
-        ilcMob.appendChild(video);
-      }
-      ilcMob.classList.add('dci-video');
-    });
-  } else {
-    isVideo = !!link.href.match(/\.mp4$/) || link.href.includes('cmd=displayMedia');
-
-    modalBodyContent = document.createElement('IFRAME');
-    modalBodyContent.src = link.href;
-  }
+  const modalBodyContent = document.createElement('IFRAME');
+  modalBodyContent.src = link.href;
 
   modalWrapper.className = `dci-modal${isVideo ? ' is-video' : ''}`;
 

@@ -1,5 +1,4 @@
-.dci-modal,
-body div.ilc_iim_ContentPopup {
+.dci-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,12 +10,19 @@ body div.ilc_iim_ContentPopup {
     flex-direction: column;
     animation: dci-modal-fadein 0.5s ease-in-out forwards;
 }
-.dci-modal.is-video,
-body div.ilc_iim_ContentPopup {
+.dci-modal.is-video {
     width: 80svw;
     height: 80svh;
     left: 10svw;
     top: 10svh;
+}
+
+body div.ilc_iim_ContentPopup {
+  background: var(--color-black);
+  border: 0;
+  padding: 0.5em;
+  line-height: 1.2;
+  font-size: var(--font-size-small);
 }
 
 @keyframes dci-modal-fadein {
@@ -82,10 +88,3 @@ body div.ilc_iim_ContentPopup {
     cursor: pointer;
 }
 
-
-body div.ilc_iim_ContentPopup {
-    display: none;
-}
-.dci-modal_body-inner {
-    padding: 20px;
-}
