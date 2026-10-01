@@ -9,12 +9,25 @@
     display: flex;
     flex-direction: column;
     animation: dci-modal-fadein 0.5s ease-in-out forwards;
-}
-.dci-modal.is-video {
-    width: 80svw;
-    height: 80svh;
-    left: 10svw;
-    top: 10svh;
+
+    &.is-popup {
+        width: 80svw;
+        height: 80svh;
+        left: 10svw;
+        top: 10svh;
+
+        .dci-modal_body > div {
+            background: transparent;
+            padding: 20px;
+        }
+    }
+
+    &.is-video {
+        width: 80svw;
+        height: 80svh;
+        left: 10svw;
+        top: 10svh;
+    }
 }
 
 body div.ilc_iim_ContentPopup {
