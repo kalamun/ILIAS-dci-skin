@@ -8,13 +8,13 @@
     background: var(--color-white);
     display: flex;
     flex-direction: column;
-    animation: dci-modal-fadein 0.5s ease-in-out forwards;
+    animation: dci-modal-fadein 0.3s ease-in-out forwards;
 
     &.is-popup {
-        width: 80svw;
-        height: 80svh;
-        left: 10svw;
-        top: 10svh;
+        width: 60svw;
+        height: 60svh;
+        left: 20svw;
+        top: 20svh;
 
         .dci-modal_body > div {
             background: transparent;
