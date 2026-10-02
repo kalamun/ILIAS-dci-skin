@@ -28,6 +28,13 @@
         display: flex;
     }
 
+    #ilToolbar :is(.l-bar__space-keeper, .l-bar__group) {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+        justify-content: center;
+    }
+
     .ilHeaderDesc {
         display: none;
     }
@@ -46,6 +53,10 @@
         td {
             border-top: 1px solid var(--color-xlight-grey);
             padding: 0.2rem 0.5rem;
+            vertical-align: middle;
+        }
+        .c-table-data__cell--statusicon {
+            width: 3em;
         }
     }
 }
